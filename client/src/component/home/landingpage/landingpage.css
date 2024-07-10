@@ -2,18 +2,24 @@
 
 
 .inner1-right-landing-page{
-    background-image: url("../../Assets/images/waterTreatment.jpg");
+    background-image: url("../../../Assets/images/waterTreatment.jpg");
     background-size: cover; /* Makes the image cover the entire div */
       background-position: center; /* Centers the image in the div */
       background-repeat: no-repeat; /* Ensures the image doesn't repeat */
   }
   .inner2-right-landing-page{
-    background-image: url("../../Assets/images/waterTreatement2.jpg");
+    background-image: url("../../../Assets/images/waterTreatement2.jpg");
     background-size: cover; /* Makes the image cover the entire div */
       background-position: center; /* Centers the image in the div */
       background-repeat: no-repeat; /* Ensures the image doesn't repeat */
   }
   
+
+  @media (max-width: 768px) {
+    .landing-page {
+      background: linear-gradient(to bottom, #0285AD, #006482,#004053);
+    }
+  }
   
   /* clip-path: polygon(58% 0, 100% 0, 100% 35%, 100% 100%, 67% 100%, 2% 98%, 4% 79%, 10% 52%, 23% 25%, 41% 8%); */
   

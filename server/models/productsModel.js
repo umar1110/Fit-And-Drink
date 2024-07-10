@@ -14,7 +14,7 @@ const productSchema = new Schema(
     overview: {
       type: String,
     },
-    sepcs: {
+    specs: {
       type: String,
     },
     images: [

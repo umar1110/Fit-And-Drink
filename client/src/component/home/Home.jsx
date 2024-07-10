@@ -1,17 +1,18 @@
-import React from "react";
-import LandingPage from "../landingpage/LandingPage";
+import React, { useState } from "react";
+import LandingPage from "./landingpage/LandingPage";
+import AboutUsPage from "./AboutUs/AboutUsPage";
+import HomeProducts from "./products/HomeProducts";
 
 function Home() {
+  
+  useState(()=>{
+    
+  })
   return (
     <>
       <LandingPage />
-      <div
-      name="about-us"
-        id="about-us"
-        className=" mt-[100vh] h-screen bg-red-50  about-us"
-      >
-        abut us
-      </div>
+      <HomeProducts/>
+      <AboutUsPage />
     </>
   );
 }

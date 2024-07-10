@@ -2,11 +2,11 @@ import axios from "axios";
 import JoditEditor from "jodit-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import useProducts from "../../../context/productsContext";
 function AddProduct() {
   const featuresRef = useRef(null);
   const overviewRef = useRef(null);
   const specsRef = useRef(null);
-
   const [title, settitle] = useState("");
   const [features, setfeatures] = useState("");
   const [overview, setoverview] = useState("");
@@ -14,11 +14,11 @@ function AddProduct() {
   const [featured, setfeatured] = useState(false);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState(null);
-
   const [success, setsuccess] = useState(false);
-
   const [postProductRequestError, setpostProductRequestError] = useState(null);
   const [message, setmessage] = useState("");
+
+  const {fetchProducts} = useProducts();
 
   const featuresPlaceholder = "Enter you product's features here ......";
   const featureJoditConfig = useMemo(
@@ -76,13 +76,14 @@ function AddProduct() {
         headers: { "Content-Type": "multipart/form-data" },
       };
 
-      const { data } = await axios.post(
+      
+      await axios.post(
         `http://localhost:4000/api/v1/products`,
         formData,
         config
       );
 
-      console.log(data);
+   
 
       toast.dismiss();
       setmessage("Product have been added . ");
@@ -91,11 +92,13 @@ function AddProduct() {
       setfeatures("");
       setoverview("");
       setspecs("");
+      await fetchProducts()
       setsuccess(true);
+      
     } catch (error) {
-      toast.dismiss();
+      toast.dismiss(); 
       setpostProductRequestError(true);
-      console.error("Error adding product:", error.response.data.message);
+    
       setmessage(error.response.data.message || "Something went wrong");
 
       setsuccess(false);
@@ -110,7 +113,6 @@ function AddProduct() {
       return;
     }
 
-    console.log("images ", images);
 
     const formData = new FormData();
     formData.append("title", title);
@@ -134,7 +136,7 @@ function AddProduct() {
   };
 
   useEffect(() => {
-    console.log("useeffect");
+   
     if (postProductRequestError) {
       // {Show toast}
       toast.warn(message || "Product upload fail");
@@ -146,6 +148,7 @@ function AddProduct() {
       setmessage("");
       setsuccess(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postProductRequestError, success]);
 
   return (

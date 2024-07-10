@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import "./navbar.css";
-import { Link } from "react-scroll";
 import { Link as RLink } from "react-router-dom";
+import "./navbar.css";
 function NavBar() {
   const [isNavBarOpen, setNavBarOpen] = useState(false);
 
@@ -80,7 +79,7 @@ function NavBar() {
 
       <div
         className={`mobile-nav-menu px-7  left-0 w-full absolute  mdd:hidden mt-12 pt-12 pb-24  gap-4 
-          text-white border-zinc-100 transform transition-transform duration-500 ${
+          text-black border-zinc-100 transform transition-transform duration-500 ${
             isNavBarOpen ? "translate-y-0" : "-translate-y-[150%]"
           } mdd:hidden overflow-hidden flex flex-col py-2 border-t-[1px]  w-[90%]`}
       >
@@ -100,7 +99,8 @@ function NavBar() {
                 <RLink
                   to={e.href}
                   onClick={handleMenuBtn}
-                  className="relative bg-red-900 uppercase text-xl font-sans font-semibold leading-none tracking-tighter "
+                  className="relative  uppercase text-xl font-sans 
+                   font-bold leading-none tracking-tighter "
                 >
                   {e.name}
 
@@ -116,10 +116,9 @@ function NavBar() {
             ) : (
               <>
                 <a
-                 href={`/#${e.href}`}
-                  
+                  href={`/#${e.href}`}
                   onClick={handleMenuBtn}
-                  className="relative bg-purple-700 uppercase text-xl font-sans font-semibold leading-none tracking-tighter "
+                  className="relative  uppercase text-xl font-sans font-semibold leading-none tracking-tighter "
                 >
                   {e.name}
 
@@ -136,7 +135,7 @@ function NavBar() {
           </div>
         ))}
       </div>
-
+      {/* Desktop options */}
       <div
         className={` desktop-options font-light gap-3 font-['NeueMontreal'] h-[35px] mdd:flex  hidden   `}
       >
@@ -165,18 +164,8 @@ function NavBar() {
                   </>
                 ) : (
                   <>
-                    <a
-                      href={`/#${o.href}`}
-                      
-                    >
-                      {o.name}
-                    </a>
-                    <a
-                      href={`/#${o.href}`}
-                      
-                    >
-                      {o.name}
-                    </a>{" "}
+                    <a href={`/#${o.href}`}>{o.name}</a>
+                    <a href={`/#${o.href}`}>{o.name}</a>{" "}
                   </>
                 )}
               </div>

@@ -5,7 +5,7 @@ import DashboardHome from "./component/admin/dashboard/DashboardHome";
 import AddProduct from "./component/admin/products/AddProduct";
 import AdminProducts from "./component/admin/products/AdminProducts";
 import AllProducts from "./component/admin/products/AllProducts";
-import Dashboard from "./component/dashboard/Dashboard";
+import Dashboard from "./dashboard/Dashboard";
 import Home from "./component/home/Home";
 import NavBar from "./component/layouts/NavBar";
 import { ProductsContextProvider } from "./context/productsContext.js";
@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminServices from "./component/admin/services/AdminServices.jsx";
 import AllServices from "./component/admin/services/AllServices.jsx";
 import AddServices from "./component/admin/services/AddServices.jsx";
+import ProductPage from "./component/Product/ProductPage.jsx";
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -78,9 +79,8 @@ function App() {
 
             <Routes>
               <Route exact path="/" element={<Home />} />
-
+              <Route path="/product/:id" element= {<ProductPage/>} />
               <Route exact path="/admin-dashboard" element={<Dashboard />} />
-
               <Route exact path="/admin/dashboard" element={<AdminDashboard />}>
                 <Route exact path="" element={<DashboardHome />} />
 

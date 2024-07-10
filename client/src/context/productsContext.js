@@ -6,7 +6,7 @@ export const productsContext = createContext({
   error: false,
   success:false,
   errorMessage: "",
-  fetchProducts : ()=>{},
+  fetchProducts : async ()=>{},
   clearErrors : ()=>{}
 });
 

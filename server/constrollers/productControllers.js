@@ -7,7 +7,7 @@ import {
 } from "../utils/uploadFilesToCloudinary.js";
 
 export const getAllProducts = catchAsyncFuncError(async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().select('title _id images featured');
 
   return res.status(200).json({
     success: true,
@@ -17,9 +17,7 @@ export const getAllProducts = catchAsyncFuncError(async (req, res) => {
 });
 
 export const createProduct = catchAsyncFuncError(async (req, res, next) => {
-  console.log("Enter in create products");
-  console.log(req.body);
-  console.log(req.files);
+ 
   const images = req.files || [];
 
   if (images.length < 1) {
@@ -30,7 +28,7 @@ export const createProduct = catchAsyncFuncError(async (req, res, next) => {
     return next(new ErrorHandler("Images Can't be more than 10", 400));
   }
 
-  const { title, features, overview, sepcs , featured } = req.body;
+  const { title, features, overview, specs , featured } = req.body;
 
   try {
     const product = new Product({
@@ -42,7 +40,7 @@ export const createProduct = catchAsyncFuncError(async (req, res, next) => {
         url: "sampleURl",
       },
       featured,
-      sepcs,
+      specs,
     });
 
     await product.save();
@@ -105,6 +103,21 @@ export const changeFeatured = catchAsyncFuncError(async (req, res, next) => {
   res.status(200).json({
     success: true,
     product:updatedProduct,
+  });
+});
+
+export const getProduct = catchAsyncFuncError(async (req, res, next) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+
+  if(!product){
+    return next(new ErrorHandler("Product Not found", 400));
+  }
+  
+  return res.status(200).json({
+    success: true,
+    product,
+    
   });
 });
 

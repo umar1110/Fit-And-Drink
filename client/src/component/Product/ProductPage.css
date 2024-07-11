@@ -3,3 +3,11 @@
   margin-top: 3px;
   margin-bottom: 3px;
 }
+
+
+.product-specs td {
+  
+  border: 1px solid black;
+  padding-top: 10px;
+}
+

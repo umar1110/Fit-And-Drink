@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./ProductPage.css"
+import "./ProductPage.css";
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState();
@@ -14,7 +14,6 @@ function ProductPage() {
   const navigate = useNavigate();
   const fetchProduct = async () => {
     try {
-     
       setLoading(true);
       const { data } = await axios.get(
         `http://localhost:4000/api/v1/product/${id}`
@@ -30,14 +29,12 @@ function ProductPage() {
   };
 
   useEffect(() => {
-    
     if (error) {
       toast.error(errorMessage);
       navigate("/");
     } else {
       fetchProduct();
     }
-   
   }, [error]);
 
   return (
@@ -51,19 +48,17 @@ function ProductPage() {
               {/* Images and features */}
               <div className="image-feature-name md:flex h-fit md:space-x-6  md:items-center lg:items-start ">
                 <Carousel className="w-full text-center md:w-1/2 lg:w-[50%] ">
-                  {product.images.map((i,idx) => 
-                    
-                      <div>
-                        <img
+                  {product.images.map((i, idx) => (
+                    <div>
+                      <img
                         key={idx}
-                          src={i.url}
-                          alt={i.url}
-                          className="md:rounded-2xl"
-                        />
-                        <p className="legend">{product.title}</p>
-                      </div>
-                    
-                  )}
+                        src={i.url}
+                        alt={i.url}
+                        className="md:rounded-2xl"
+                      />
+                      <p className="legend">{product.title}</p>
+                    </div>
+                  ))}
                 </Carousel>
 
                 <div className="name-features w-full md:w-1/2 px-4  md:px-0 ">
@@ -83,11 +78,11 @@ function ProductPage() {
                   Specifications
                 </h3>
                 <div
-                  className="html-string product-features border-2 md:text-xl "
+                  className="html-string product-specs border-2 md:text-xl "
                   dangerouslySetInnerHTML={{ __html: product.specs }}
                 ></div>
               </div>
-
+              
               {/* Overview */}
               <div className="overview 3">
                 <h3 className="Spec-heading font-semibold text-4xl text-center mb-3">

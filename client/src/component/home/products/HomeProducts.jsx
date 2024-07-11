@@ -45,10 +45,10 @@ function HomeProducts() {
     <>
       {!loading && (
         <div
-          id="featured-products-container"
+          id="products"
           className="featured-products-container bg-transparent "
         >
-          <div className="mx-auto  px-4 py-16 sm:px-6 sm:py-24 w-full md:w-[80%]  lg:px-8 ">
+          <div className="mx-auto  px-4 py-16  sm:px-6 sm:py-10 w-full md:w-[80%]  lg:px-8 ">
             <h2 className="text-2xl  md:text-3xl font-bold tracking-tight text-center text-gray-900">
               Featured Products
             </h2>

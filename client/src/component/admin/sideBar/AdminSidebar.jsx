@@ -57,7 +57,7 @@ function AdminSidebar() {
               </svg>
               <span className="">Edit Products</span>
             </Link>
-            <Link
+            {/* <Link
               to="/admin/dashboard/services"
               className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
             >
@@ -75,7 +75,7 @@ function AdminSidebar() {
                 ></path>
               </svg>
               <span className="">Services</span>
-            </Link>
+            </Link> */}
             <Link
               to="/admin/dashboard/messages"
               className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"

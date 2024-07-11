@@ -16,6 +16,8 @@ module.exports = {
   variants: {
     backgroundImage: ['responsive'],
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }
 

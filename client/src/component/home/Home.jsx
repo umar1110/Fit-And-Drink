@@ -3,6 +3,7 @@ import AboutUsPage from "./AboutUs/AboutUsPage";
 import LandingPage from "./landingpage/LandingPage";
 import HomeProducts from "./products/HomeProducts";
 import ServicesPage from "../services/ServicesPage";
+import ContactUsPage from "./Contact/ContactUsPage";
 function Home() {
 
 useEffect(()=>{
@@ -15,6 +16,7 @@ useEffect(()=>{
       <AboutUsPage />
       <HomeProducts/>
       <ServicesPage/>
+      <ContactUsPage/>
       
       </div>
   );

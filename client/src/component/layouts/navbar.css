@@ -1,5 +1,6 @@
 a .span1{
     transform: translateX(-120%);
+    
 }
 a:hover .span1 {
     transform:  translateX(0);
@@ -56,6 +57,14 @@ a .span2{
     transform: translateX(0);
   }
 
+
+
+  #nav-bar{
+    background: linear-gradient(to right, #0383AA
+    , #004459,#0383AA);
+    
+   
+  }
 
 
   #nav-bar .active{

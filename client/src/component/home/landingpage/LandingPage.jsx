@@ -53,7 +53,7 @@ function LandingPage() {
         />
 
         {/* Left Side  */}
-        <div className="left-landing-page py-20 md:py-40  w-[90%] md:w-1/2 flex justify-end px-6   ">
+        <div className="left-landing-page py-20 md:py-40  w-[90%] md:w-1/2 flex md:justify-start  px-6 xl:pl-24   ">
           <div className="left-inner-container space-y-9 md:space-y-12 lg:w-[75%]">
             <h1 className="text-3xl sm:text-5xl font-semibold">
               Building a more <br className=" md:hidden lg:block" />{" "}

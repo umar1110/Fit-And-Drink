@@ -83,8 +83,8 @@ function ServicesPage() {
 
   return (
     <>
-      <div id="services" className="services-container  mt-10 pb-16 ">
-        <h1 className="text-3xl text-center font-semibold my-8 md:text-5xl">
+      <div id="services" className="services-container   mt-10 pb-16 ">
+        <h1 className="text-3xl text-center font-semibold md:font-bold my-8 md:text-4xl">
           Services
         </h1>
         {/* Service multiple cards */}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link as RLink } from "react-router-dom";
 import "./navbar.css";
+import WebLogo from "../../Assets/images/WebLogo.png"
 function NavBar() {
   const [isNavBarOpen, setNavBarOpen] = useState(false);
 
@@ -45,13 +46,14 @@ function NavBar() {
     <div
       id="nav-bar"
       className={`fixed flex top-0 left-0  z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
-      // style={{backgroundColor:"rgba(8, 37, 104, 0.3)"}}
+      
     >
       <RLink
-        to={"/#homePage"}
+        to={"/"}
         className="text-white cursor-pointer  logo  font-bold text-3xl"
       >
-        Fit And Drink
+       <img src={WebLogo} alt="" className="w-[150px] h-[40px]"/>
+    
       </RLink>
 
       <div className={`btn  flex justify-center items-center gap-3 `}>
@@ -84,8 +86,8 @@ function NavBar() {
           } mdd:hidden overflow-hidden flex flex-col py-2 border-t-[1px]  w-[90%]`}
       >
         {[
-          { name: "Home", href: "/" },
-          { name: "Products", href: "/products" },
+          { name: "Home", href: "" },
+          { name: "Products", href: "products" },
           { name: "Services", href: "services" },
           { name: "About Us", href: "about-us" },
           { name: "contact us", href: "contactus" },
@@ -94,26 +96,7 @@ function NavBar() {
             key={idx}
             className="group overflow-hidden  py-[2px] relative w-fit px-4"
           >
-            {e.name === "Products" || e.name === "Home" ? (
-              <>
-                <RLink
-                  to={e.href}
-                  onClick={handleMenuBtn}
-                  className="relative  uppercase text-xl font-sans 
-                   font-bold leading-none tracking-tighter "
-                >
-                  {e.name}
-
-                  <span
-                    className={`span1  transition-transform duration-300 ease-in-out    absolute w-full h-[4px] bg-white bottom-0 left-0`}
-                  ></span>
-
-                  <span
-                    className={`span2  transition-transform duration-300 ease-in-out    absolute w-full  h-[4px] bg-white bottom-0 left-0`}
-                  ></span>
-                </RLink>{" "}
-              </>
-            ) : (
+            
               <>
                 <a
                   href={`/#${e.href}`}
@@ -131,7 +114,7 @@ function NavBar() {
                   ></span>
                 </a>
               </>
-            )}
+            )
           </div>
         ))}
       </div>
@@ -140,8 +123,8 @@ function NavBar() {
         className={` desktop-options font-light gap-3 font-['NeueMontreal'] h-[35px] mdd:flex  hidden   `}
       >
         {[
-          { name: "Home", href: "/" },
-          { name: "Products", href: "/products" },
+          { name: "Home", href: "" },
+          { name: "Products", href: "products" },
           { name: "Services", href: "services" },
           { name: "About Us", href: "about-us" },
           { name: "contact us", href: "contactus" },
@@ -154,20 +137,14 @@ function NavBar() {
               }  min-w-fit  text-[20px] overflow-hidden `}
             >
               <div
-                className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[50%]  flex-col  transition-transform duration-300`}
+                className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[48%]  flex-col  transition-transform duration-300`}
               >
-                {o.name === "Products" || o.name === "Home" ? (
-                  <>
-                    {" "}
-                    <RLink to={o.href}> {o.name}</RLink>
-                    <RLink to={o.href}> {o.name}</RLink>
-                  </>
-                ) : (
+               (
                   <>
                     <a href={`/#${o.href}`}>{o.name}</a>
                     <a href={`/#${o.href}`}>{o.name}</a>{" "}
                   </>
-                )}
+                )
               </div>
               <span
                 className={`absolute  bg-white bottom-0 -translate-x-[110%] transition-transform duration-300 ease-in-out   w-full h-[2px] `}

@@ -5,16 +5,14 @@ import DashboardHome from "./component/admin/dashboard/DashboardHome";
 import AddProduct from "./component/admin/products/AddProduct";
 import AdminProducts from "./component/admin/products/AdminProducts";
 import AllProducts from "./component/admin/products/AllProducts";
-import Dashboard from "./dashboard/Dashboard";
 import Home from "./component/home/Home";
 import NavBar from "./component/layouts/NavBar";
 import { ProductsContextProvider } from "./context/productsContext.js";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminServices from "./component/admin/services/AdminServices.jsx";
-import AllServices from "./component/admin/services/AllServices.jsx";
-import AddServices from "./component/admin/services/AddServices.jsx";
+import Adminmessages from "./component/admin/messages/Adminmessages.jsx";
+import AdminUsers from "./component/admin/users/AdminUsers.jsx";
 import ProductPage from "./component/Product/ProductPage.jsx";
 function App() {
   const [products, setProducts] = useState([]);
@@ -62,7 +60,8 @@ function App() {
 
   return (
     <>
-     {!loading &&  <ProductsContextProvider
+     {!loading &&  
+     <ProductsContextProvider
         value={{
           products,
           loading,
@@ -82,7 +81,7 @@ function App() {
 
               <Route path="/product/:id" element= {<ProductPage/>} />
              
-              <Route exact path="/admin-dashboard" element={<Dashboard />} />
+              
               <Route exact path="/admin/dashboard" element={<AdminDashboard />}>
                 <Route exact path="" element={<DashboardHome />} />
 
@@ -90,11 +89,20 @@ function App() {
                   <Route exact path="" element={<AllProducts />} />
                   <Route exact path="upload" element={<AddProduct />} />
                 </Route>
+                <Route exact path="messages" element={<Adminmessages />}/>
+                  
+                <Route exact path="users" element={<AdminUsers />}/>
+                  
+                <Route exact path="products" element={<AdminProducts />}>
+                  <Route exact path="" element={<AllProducts />} />
+                  <Route exact path="upload" element={<AddProduct />} />
+                </Route>
+  
 
-                <Route exact path="services" element={<AdminServices />}>
+                {/* <Route exact path="services" element={<AdminServices />}>
                   <Route exact path="" element={<AllServices />} />
                   <Route exact path="upload" element={<AddServices />} />
-                </Route>
+                </Route> */}
               </Route>
             </Routes>
           </BrowserRouter>

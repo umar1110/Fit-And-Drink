@@ -52,9 +52,10 @@ function AllProducts() {
   }
   
   useEffect(() => {
-    fetchProducts();
+   
 
     if(deleted){
+      fetchProducts();
       setdeleted(false)
     }
     console.log("asdasdas");

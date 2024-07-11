@@ -48,10 +48,10 @@ function NavBar() {
       // style={{backgroundColor:"rgba(8, 37, 104, 0.3)"}}
     >
       <RLink
-        to={"/"}
+        to={"/#homePage"}
         className="text-white cursor-pointer  logo  font-bold text-3xl"
       >
-        Fit N Drink
+        Fit And Drink
       </RLink>
 
       <div className={`btn  flex justify-center items-center gap-3 `}>

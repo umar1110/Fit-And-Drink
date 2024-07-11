@@ -54,7 +54,7 @@ function App() {
 
   useEffect(() => {
     fetchProducts();
-    console.log("useeffect of all produts");
+ 
     if (error) {
       clearErrors();
     }
@@ -62,7 +62,7 @@ function App() {
 
   return (
     <>
-      <ProductsContextProvider
+     {!loading &&  <ProductsContextProvider
         value={{
           products,
           loading,
@@ -79,7 +79,9 @@ function App() {
 
             <Routes>
               <Route exact path="/" element={<Home />} />
+
               <Route path="/product/:id" element= {<ProductPage/>} />
+             
               <Route exact path="/admin-dashboard" element={<Dashboard />} />
               <Route exact path="/admin/dashboard" element={<AdminDashboard />}>
                 <Route exact path="" element={<DashboardHome />} />
@@ -98,7 +100,7 @@ function App() {
           </BrowserRouter>
         </div>
         <ToastContainer id="main" closeOnClick stacked closeButton />
-      </ProductsContextProvider>
+      </ProductsContextProvider>}
     </>
   );
 }

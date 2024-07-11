@@ -1,11 +1,15 @@
 import "./landingpage.css";
 import mobImg1 from "../../../Assets/images/waterTreatment.jpg";
 import mobImg2 from "../../../Assets/images/waterTreatement2.jpg";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import background from "../../../Assets/images/FitNDrinkLandingPageBackground.jfif";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 function LandingPage() {
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
+
+
   useGSAP(() => {
     gsap.from(".mob-landing-imgs1", {
       x: -140,

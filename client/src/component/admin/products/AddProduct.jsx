@@ -2,7 +2,6 @@ import axios from "axios";
 import JoditEditor from "jodit-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import useProducts from "../../../context/productsContext";
 function AddProduct() {
   const featuresRef = useRef(null);
   const overviewRef = useRef(null);
@@ -17,8 +16,6 @@ function AddProduct() {
   const [success, setsuccess] = useState(false);
   const [postProductRequestError, setpostProductRequestError] = useState(null);
   const [message, setmessage] = useState("");
-
-  const {fetchProducts} = useProducts();
 
   const featuresPlaceholder = "Enter you product's features here ......";
   const featureJoditConfig = useMemo(
@@ -92,7 +89,7 @@ function AddProduct() {
       setfeatures("");
       setoverview("");
       setspecs("");
-      await fetchProducts()
+     
       setsuccess(true);
       
     } catch (error) {

@@ -9,16 +9,15 @@ function AboutUsPage() {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.to("#animated-up-line-about", {
-      y: "100%",
-
+    gsap.to(".animated-up-line-about", {
       scrollTrigger: {
         scroller: "body",
         trigger: "#about-us",
-
-        scrub: true,
+              scrub: true,
         start: "top 60%",
       },
+      y: "100%",
+
     });
 
     if (window.innerWidth < 768) {

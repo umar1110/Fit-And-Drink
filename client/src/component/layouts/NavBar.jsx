@@ -137,7 +137,7 @@ function NavBar() {
               }  min-w-fit  text-[20px] overflow-hidden `}
             >
               <div
-                className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[48%]  flex-col  transition-transform duration-300`}
+                className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[48%] lg:translate-y-[45%]  flex-col  transition-transform duration-300`}
               >
                (
                   <>

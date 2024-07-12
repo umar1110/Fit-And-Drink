@@ -34,7 +34,7 @@ function HomeProducts() {
         duration: 0.7,
         scrollTrigger: {
           scroller: "body",
-          trigger: "#featured-products-container",
+          trigger: ".featured-products-container",
           start: "top 60%",
         },
       });

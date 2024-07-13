@@ -85,7 +85,7 @@ function ProductPage() {
                 ></div>
               </div>
 
-              {product.specs}
+             
               
               {/* Overview */}
               <div className="overview 3">

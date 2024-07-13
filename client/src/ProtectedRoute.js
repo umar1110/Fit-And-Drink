@@ -2,8 +2,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ isAuthenticated, children }) => {
-  if (!isAuthenticated) {
+const ProtectedRoute = ({ isAuthenticated, children ,loading}) => {
+  if (!loading && !isAuthenticated ) {
     return <Navigate to="/admin/login" />;
   }
 

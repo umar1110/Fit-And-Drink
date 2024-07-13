@@ -109,8 +109,7 @@ const [mesuccess, setmesuccess] = useState(false)
       setmeError(null);
     }
 
-    if (!isAuthenticated) {
-    }
+  
     fetchMe();
   }, [isAuthenticated]); // Empty dependency array to run only once
 
@@ -151,7 +150,7 @@ const [mesuccess, setmesuccess] = useState(false)
                   <Route
                     path="/admin/dashboard"
                     element={
-                      <ProtectedRoute isAuthenticated={isAuthenticated}>
+                      <ProtectedRoute isAuthenticated={isAuthenticated} loading={meLoading}>
                         <AdminDashboard />
                       </ProtectedRoute>
                     }
@@ -160,7 +159,7 @@ const [mesuccess, setmesuccess] = useState(false)
                     <Route
                       path="products"
                       element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
                           <AdminProducts />
                         </ProtectedRoute>
                       }
@@ -171,7 +170,7 @@ const [mesuccess, setmesuccess] = useState(false)
                     <Route
                       path="users"
                       element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
                           <AdminUsers />
                         </ProtectedRoute>
                       }
@@ -182,7 +181,7 @@ const [mesuccess, setmesuccess] = useState(false)
                     <Route
                       path="messages"
                       element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
                           <Adminmessages />
                         </ProtectedRoute>
                       }
@@ -190,7 +189,7 @@ const [mesuccess, setmesuccess] = useState(false)
                     <Route
                       path="users"
                       element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
                           <AdminUsers />
                         </ProtectedRoute>
                       }

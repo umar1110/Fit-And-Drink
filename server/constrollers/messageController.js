@@ -15,7 +15,7 @@ export const getAllMessages = catchAsyncFuncError(async (req, res) => {
 });
 
 export const sendMessage = catchAsyncFuncError(async (req, res) => {
-  // console.log(req.body)
+
   const { name, email, message } = req.body;
 
   try {

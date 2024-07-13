@@ -8,6 +8,7 @@ import Admin from "../models/adminModel.js";
 export const isAuthenticatedAdmin = catchAsyncFuncError(async (req, res, next) => {
     
     const { token } = req.cookies;
+    
 
     if (!token) {
         return next(new ErrorHandler("Please Login to access this sourse", 401))

@@ -1,67 +1,64 @@
 import React, { useEffect, useState } from "react";
-import useMe from "../../context/meContext";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
-function LoginPage() {
-  const { isAuthenticated, fetchMe } = useMe();
-  const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+import axios from "axios";
+function AddUser() {
+  const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
-  const [success, setsuccess] = useState(false);
-  const [error, setError] = useState(null);
-  const handleLoginSubmit = async (e) => {
+  const [addeed, setaddeed] = useState(false);
+  const [error, seterror] = useState(false);
+  const handleAdminAddSubmit = async (e) => {
     e.preventDefault();
-
+    toast.loading("Admin creating....");
     try {
-      toast.loading("Logging in...");
       const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       };
 
-      const url = `/api/v1/login/admin`;
+      const url = `/api/v1/register/admin`;
 
-      const { data } = await axios.post(url, { username, password }, config);
+      await axios.post(
+        url,
+        {
+          username,
+          password,
+        },
+        config
+      );
 
-      console.log(data);
       toast.dismiss();
-      toast.success("Login Successfull");
-      await fetchMe();
-      setsuccess(true);
+      toast.success("Admin added successfully");
+      setusername("");
+      setpassword("");
+      setaddeed(true);
     } catch (error) {
-      setsuccess(false);
-      setError(true);
       toast.dismiss();
-      toast.error(error.response.data.message || "Login failed");
+      seterror(true);
+      setaddeed(false);
+      toast.error(error.response.data.message || "Something went wrong");
     }
   };
 
   useEffect(() => {
-    console.log("usestate of login page");
 
-    if (isAuthenticated) {
-      navigate("/admin/dashboard");
+    if(error || addeed){
+      seterror(false)
+      setaddeed (false)
     }
 
-    // if(error){
-    //     setError(false);
-    // }
-  }, [success, error]);
+  },[error,addeed]);
 
   return (
-    <div className="flex pt-20 bg-white h-screen min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex  bg-white h-full min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          Sign in to Admin Account
+          Enter New Admin
         </h2>
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form
           onSubmit={(e) => {
-            handleLoginSubmit(e);
+            handleAdminAddSubmit(e);
           }}
           className="space-y-6"
         >
@@ -98,8 +95,9 @@ input:-webkit-autofill:active {
                 name="username"
                 value={username}
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setusername(e.target.value);
                 }}
+                autoComplete="off"
                 required
                 className="block w-full rounded-md border-0 py-1.5 !text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 px-3 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -134,25 +132,15 @@ input:-webkit-autofill:active {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex w-full justify-center rounded-md bg-[#00475C] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#037FA4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Sign in
+              Add Admin
             </button>
           </div>
         </form>
-
-        <p className="mt-10 text-center text-sm text-gray-500">
-          Not a admin?{" "}
-          <a
-            href="/#contactus"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >
-            Request Admin to make admin.
-          </a>
-        </p>
       </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default AddUser;

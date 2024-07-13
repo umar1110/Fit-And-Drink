@@ -1,94 +1,89 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-function AllProducts() {
-  // const { products, fetchProducts } = useProducts();
-  const [products, setproducts] = useState(null);
+function AllUsers() {
+  const [admins, setadmins] = useState(null);
   const [deleted, setdeleted] = useState(false);
-  const [error, seterror] = useState(null);
 
-  const handleDelete = async (id) => {
+  const [error, seterror] = useState(false);
+  const fetchAdmins = async () => {
     try {
-      toast.loading("Deleting product");
-      const { data } = await axios.delete(
-        `/api/v1/product/${id}`
-      );
-      toast.dismiss();
-      if (data.success) {
-        toast.success("Product Deleted Successfulyy");
-        setdeleted(true);
-      } else {
-        toast.error(data.message || "Product Deletion failed");
-        setdeleted(false);
-      }
-    } catch (error) {
-      toast.dismiss();
-      toast.error(error.response.data.message || "Product Deletion failed");
-
-      setdeleted(false);
-    }
-  };
-
-  const fetchProducts = async () => {
-    try {
-      const url = `/api/v1/products`;
+      const url = `/api/v1/registered/admins`;
       const response = await fetch(url);
 
       if (!response.ok) {
+        console.log(response);
+        toast.error("Admin fetching failed");
         seterror(true);
       }
 
       const data = await response.json();
-      setproducts(data.products);
+      setadmins(data.admins);
     } catch (error) {
       seterror(true);
     }
   };
-  const handleFeaturedChange = async (id) => {
+
+  const handleDelete = async (id) => {
     try {
-      toast.loading("Updating product");
-      const { data } = await axios.put(
-        `http://localhost:4000/api/v1/product/${id}`
-      );
+      toast.loading("Deleting admin")
+      const url = `/api/v1/remove/admin/${id}`;
+
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
       toast.dismiss();
-      if (data.success) {
-        toast.success("Product Updated Successfulyy");
-        setdeleted(true);
-      } else {
-        toast.error(data.message || "Product Updation failed");
-        setdeleted(false);
+    
+
+      const data = await response.json();
+      
+      
+      if(data.success){
+        toast.success("Admin deleted successfull")
+        setdeleted(true)
       }
+      else{
+        toast.error(data.message || "Admin Deletion failed ")
+        setdeleted(false)
+      }
+
     } catch (error) {
       toast.dismiss();
-      toast.error(error.response.data.message || "Product Updation failed");
-
-      setdeleted(false);
+      toast.error(error.message || "Admin Deletion failed ")
+      seterror(true);
     }
   };
 
   useEffect(() => {
-    fetchProducts();
-    if (deleted) {
+    fetchAdmins();
+
+    if(error){
+      seterror(false)
+    }
+    if(deleted){
       setdeleted(false);
     }
-  }, [deleted]);
+   
 
+
+  }, [deleted, error]);
   return (
-    <>
+    <div>
       {
         <table className="border-collapse w-full">
           <thead>
             <tr>
               <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
-                Product ID
+                ID
               </th>
               <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
-                Product Name
+                User Name
               </th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
-                Featured
-              </th>
+
               <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">
                 Actions
               </th>
@@ -96,38 +91,26 @@ function AllProducts() {
           </thead>
 
           <tbody>
-            {products &&
-              products.map((p) => {
+            {admins &&
+              admins.map((a) => {
                 return (
                   <tr
-                    key={p._id}
+                    key={a._id}
                     className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0"
                   >
                     <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                       <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                         Product Id
                       </span>
-                      {p._id}
+                      {a._id}
                     </td>
                     <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
                       <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                         Product Name
                       </span>
-                      {p.title}
+                      {a.username}
                     </td>
 
-                    <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
-                      <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
-                        Featured
-                      </span>
-                      <input
-                        type="checkbox"
-                        checked={p.featured}
-                        onChange={() => {
-                          handleFeaturedChange(p._id);
-                        }}
-                      />
-                    </td>
                     <td className="w-full lg:w-auto p-3 text-gray-800 order border-b text-center block lg:table-cell relative lg:static">
                       <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">
                         Actions
@@ -135,7 +118,7 @@ function AllProducts() {
 
                       <button
                         onClick={async () => {
-                          await handleDelete(p._id);
+                          await handleDelete(a._id);
                         }}
                         className="text-blue-400 hover:text-blue-600 underline pl-6"
                       >
@@ -148,8 +131,8 @@ function AllProducts() {
           </tbody>
         </table>
       }
-    </>
+    </div>
   );
 }
 
-export default AllProducts;
+export default AllUsers;

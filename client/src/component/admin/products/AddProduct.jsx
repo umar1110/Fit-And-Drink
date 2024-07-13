@@ -73,9 +73,10 @@ function AddProduct() {
         headers: { "Content-Type": "multipart/form-data" },
       };
 
-      
+      const url = `/api/v1/products`
+
       await axios.post(
-        `http://localhost:4000/api/v1/products`,
+       url,
         formData,
         config
       );

@@ -1,16 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Footer from "../layouts/Footer/Footer";
+import ServicesPage from "../services/ServicesPage";
 import AboutUsPage from "./AboutUs/AboutUsPage";
+import ContactUsPage from "./Contact/ContactUsPage";
 import LandingPage from "./landingpage/LandingPage";
 import HomeProducts from "./products/HomeProducts";
-import ServicesPage from "../services/ServicesPage";
-import ContactUsPage from "./Contact/ContactUsPage";
-import Footer from "../layouts/Footer/Footer";
 function Home() {
 
-useEffect(()=>{
- window.scrollTo({ top: 0, behavior: 'smooth' });
 
-})
   return (
     <div id="homePage">
       <LandingPage />

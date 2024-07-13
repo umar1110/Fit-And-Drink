@@ -15,8 +15,10 @@ function ProductPage() {
   const fetchProduct = async () => {
     try {
       setLoading(true);
+      const url = `/api/v1/product/${id}`
+
       const { data } = await axios.get(
-        `http://localhost:4000/api/v1/product/${id}`
+       url
       );
 
       setProduct(data.product);
@@ -44,7 +46,7 @@ function ProductPage() {
           {loading ? (
             <></>
           ) : (
-            <div className="Product-Oage py-16  md:pt-[5rem] lg:w-[90%] xl:w-[80%]  mx-auto">
+            <div className="Product-Page py-16  md:pt-[5rem] lg:w-[90%] xl:w-[80%]  mx-auto">
               {/* Images and features */}
               <div className="image-feature-name md:flex h-fit md:space-x-6  md:items-center lg:items-start ">
                 <Carousel className="w-full text-center md:w-1/2 lg:w-[50%] ">
@@ -62,11 +64,11 @@ function ProductPage() {
                 </Carousel>
 
                 <div className="name-features w-full md:w-1/2 px-4  md:px-0 ">
-                  <h1 className="product-name text-center text-3xl">
+                  <h1 className="product-name text-center text-3xl md:text-4xl my-4 font-bold">
                     {product.title}
                   </h1>
                   <div
-                    className="html-string product-features  "
+                    className="html-string product-features  leading-7"
                     dangerouslySetInnerHTML={{ __html: product.features }}
                   ></div>
                 </div>
@@ -78,10 +80,12 @@ function ProductPage() {
                   Specifications
                 </h3>
                 <div
-                  className="html-string product-specs border-2 md:text-xl "
+                  className="html-string product-specs mdd:w-[80%] mx-auto "
                   dangerouslySetInnerHTML={{ __html: product.specs }}
                 ></div>
               </div>
+
+              {product.specs}
               
               {/* Overview */}
               <div className="overview 3">

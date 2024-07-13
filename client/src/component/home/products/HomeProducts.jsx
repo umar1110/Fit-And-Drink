@@ -1,13 +1,16 @@
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React from "react";
 import { Link } from "react-router-dom";
 import useProducts from "../../../context/productsContext";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function HomeProducts() {
   const { products, loading } = useProducts();
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
+
+  
 
   useGSAP(() => {
     if (window.innerWidth < 768) {

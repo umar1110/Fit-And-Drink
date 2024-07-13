@@ -32,6 +32,6 @@ export const uploadFilesToCloudinary = async (files = []) => {
   };
 
   export const deletFilesFromCloudinary = async (public_id) => {
-    console.log(public_id)
+    
     await cloudinary.uploader.destroy(public_id);
   };  

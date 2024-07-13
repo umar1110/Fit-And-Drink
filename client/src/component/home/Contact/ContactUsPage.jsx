@@ -17,8 +17,10 @@ function ContactUsPage() {
           "Content-Type": "application/json",
         },
       };
+      const url = `/api/v1/messages`
+
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/messages",
+       url,
         formdata,
         config
       );
@@ -30,7 +32,7 @@ function ContactUsPage() {
     } catch (error) {
       toast.dismiss();
       toast.error("Send message failed ");
-      console.log(error.message);
+      
     }
   };
 
@@ -47,7 +49,7 @@ function ContactUsPage() {
 
   return (
     <div id="contactus" className={` min-h-screen  text-black mb-24   `}>
-      <section className="p-6 lg:p-8">
+      <section className="p-1 sm:p-6 lg:p-8">
         <div
           className={`grid items-center grid-cols-12 p-4 md:p-8 bg-[#01617E]  rounded-2xl`}
         >

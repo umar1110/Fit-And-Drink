@@ -50,6 +50,26 @@ export const getAdmins = catchAsyncFuncError(async (req, res) => {
   });
 
 
+
+  export const removeAdmin = catchAsyncFuncError(async (req, res,next) => {
+    
+    const {id} = req.params;
+    if(id == req.admin.id){
+      return next(new ErrorHandler("You can not remove yourself")), 400;
+
+    }
+    
+    const admin = await Admin.findByIdAndDelete(id);
+
+
+    res.status(200).json({
+        success:true,
+        admin
+    })
+  });
+
+
+  
   
 export const logoutAdmin = catchAsyncFuncError(async (req, res,next) => {
     res.cookie("token", null, {
@@ -64,6 +84,7 @@ export const logoutAdmin = catchAsyncFuncError(async (req, res,next) => {
   });
   
   export const getAdminDetails = catchAsyncFuncError(async (req,res)=>{
+    
     const admin = await Admin.findById(req.admin.id);
 
     

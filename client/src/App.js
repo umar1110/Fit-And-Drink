@@ -16,6 +16,9 @@ import AdminUsers from "./component/admin/users/AdminUsers.jsx";
 import ProductPage from "./component/Product/ProductPage.jsx";
 import { MeContextProvider } from "./context/meContext.js";
 import LoginPage from "./component/admin/LoginPage.jsx";
+import ProtectedRoute from "./ProtectedRoute.js";
+import AllUsers from "./component/admin/users/AllUsers.jsx";
+import AddUser from "./component/admin/users/AddUser.jsx";
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,10 +29,12 @@ function App() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:4000/api/v1/products");
+      const url = `/api/v1/products`;
+      const response = await fetch(url);
 
       if (!response.ok) {
         setLoading(false);
+        setsuccess(false)
         setError(true);
         setErrorMessage("Products fetching failed.");
       }
@@ -53,73 +58,77 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(process.env.REACT_APP_BACKEND_URL)
     fetchProducts();
 
     if (error) {
       clearErrors();
     }
-  }, [error, success]);
-
+   
+  }, [error]);
 
   const [me, setMe] = useState(null);
   const [meLoading, setmeLoading] = useState(true);
   const [meerror, setmeError] = useState(false);
-  
+const [mesuccess, setmesuccess] = useState(false)
   const [isAuthenticated, setisAuthenticated] = useState(false);
 
-const fetchMe = async ()=>{
+  const fetchMe = async () => {
+    try {
+      setmeLoading(true);
+      const url = `/api/v1/me`;
+      const response = await fetch(url);
 
-  try {
-    setmeLoading(true);
-    const response = await fetch("http://localhost:4000/api/v1/me");
+      const data = await response.json();
 
- 
+      if (data.success) {
+        setMe(data.admin);
 
-    const data = await response.json();
-    
-    if(data.success){
+        setisAuthenticated(true);
+        setmesuccess(true)
+        console.log(data);
+      } else {
+        console.log(data.message);
+        setmeError(true);
+        setmesuccess(false)
+        setisAuthenticated(false);
+      }
+    } catch (error) {
+      console.log(error.message);
+      setmesuccess(false)
 
-      setMe(data.admin);
-      setisAuthenticated(true);
-     
-    }
-    else{
       setisAuthenticated(false);
+      setmeError(true);
+    } finally {
+      setmeLoading(false);
     }
+  };
+  useEffect(() => {
+    console.log("USeeffect in app.js");
 
-   
-  } catch (error) {
-    setisAuthenticated(false);
-    setmeError(true);
-   
-  }
-  finally{
-    setmeLoading(false);
-  }
-}
-
-  useEffect(()=>{
-    console.log("USeeffect in app.js")
-    if(meerror){
+    if (meerror) {
       setmeError(null);
     }
-    
+
+    if (!isAuthenticated) {
+    }
     fetchMe();
-  },[isAuthenticated])
+  }, [isAuthenticated]); // Empty dependency array to run only once
+
   return (
     <>
       {!loading && (
-        <MeContextProvider value={{
-          me: me,
-          loading: meLoading,
-          error: meerror,
-          isAuthenticated:isAuthenticated,
-          fetchMe :fetchMe,
-          clearErrors : ()=>{
-            setmeError(null)
-          }
-        }}>
+        <MeContextProvider
+          value={{
+            me: me,
+            loading: meLoading,
+            error: meerror,
+            isAuthenticated: isAuthenticated,
+            fetchMe: fetchMe,
+            clearErrors: () => {
+              setmeError(null);
+            },
+          }}
+        >
           <ProductsContextProvider
             value={{
               products,
@@ -134,38 +143,58 @@ const fetchMe = async ()=>{
             <div className="app p-0 m-0 max-w-screen overflow-hidden">
               <BrowserRouter>
                 <NavBar />
-
                 <Routes>
                   <Route exact path="/" element={<Home />} />
-
                   <Route path="/product/:id" element={<ProductPage />} />
-
                   <Route path="/admin/login" element={<LoginPage />} />
 
                   <Route
-                    exact
                     path="/admin/dashboard"
-                    element={<AdminDashboard />}
+                    element={
+                      <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <AdminDashboard />
+                      </ProtectedRoute>
+                    }
                   >
                     <Route exact path="" element={<DashboardHome />} />
-
-                    <Route exact path="products" element={<AdminProducts />}>
+                    <Route
+                      path="products"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                          <AdminProducts />
+                        </ProtectedRoute>
+                      }
+                    >
                       <Route exact path="" element={<AllProducts />} />
                       <Route exact path="upload" element={<AddProduct />} />
                     </Route>
-                    <Route exact path="messages" element={<Adminmessages />} />
-
-                    <Route exact path="users" element={<AdminUsers />} />
-
-                    <Route exact path="products" element={<AdminProducts />}>
-                      <Route exact path="" element={<AllProducts />} />
-                      <Route exact path="upload" element={<AddProduct />} />
+                    <Route
+                      path="users"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                          <AdminUsers />
+                        </ProtectedRoute>
+                      }
+                    >
+                      <Route exact path="" element={<AllUsers />} />
+                      <Route exact path="upload" element={<AddUser />} />
                     </Route>
-
-                    {/* <Route exact path="services" element={<AdminServices />}>
-                  <Route exact path="" element={<AllServices />} />
-                  <Route exact path="upload" element={<AddServices />} />
-                </Route> */}
+                    <Route
+                      path="messages"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                          <Adminmessages />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="users"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                          <AdminUsers />
+                        </ProtectedRoute>
+                      }
+                    />
                   </Route>
                 </Routes>
               </BrowserRouter>

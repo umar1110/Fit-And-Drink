@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "frontend",
+        "use": "@vercel/static-build"
+      },
+      {
+        "src": "backend/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+        {
+            "src": "/.*",
+            "dest": "backend/server.js" 
+        }
+    ],
+    "env": 
+      {
+        "MONGODB_URI": "mongodb+srv://umarrajpoot10022004:umar1110@cellcave.txijojc.mongodb.net/FitNDrink",
+        "PORT": "4000",
+        "CLOUDINARY_CLOUD_NAME": "dnhzqlits",
+        "CLOUDINARY_API_KEY": "657832315182327",
+        "CLOUDINARY_API_SECRET": "l_V8mHZkOOoWa6ltmrRXCAlCml4",
+        "NODE_ENV": "DEVELOPMENT",
+        "SMPT_MAIL": "umarworkbase10@gmail.com",
+        "SMPT_PASSWORD": "gyaifhwpsolulron",
+        "ADMIN_MAIL": "umar10022004@gmail.com",
+        "JWT_SECRET": "sakdjaksjdhkasjnoasdoasdjoas"
+      }
+    
+}

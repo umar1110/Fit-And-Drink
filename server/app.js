@@ -27,23 +27,23 @@ app.use("/api/v1",adminRouter)
 
 
 
-//   // For Hosting 
-// import path from 'path';
-// import { fileURLToPath } from 'url';
+  // For Hosting 
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 
-// // Derive __dirname equivalent
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+// Derive __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// // Serve static files from the React app's build directory
-// app.use(express.static(path.join(__dirname, '../client/build')));
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-// // Handle all other routes by sending the main index.html file
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-// });
+// Handle all other routes by sending the main index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
 
 
 

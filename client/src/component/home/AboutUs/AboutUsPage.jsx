@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import mobImg1 from "../../../Assets/images/waterTreatment.jpg";
+
 function AboutUsPage() {
   const container = useRef(null);
   gsap.registerPlugin(useGSAP);
@@ -13,11 +14,10 @@ function AboutUsPage() {
       scrollTrigger: {
         scroller: "body",
         trigger: "#about-us",
-              scrub: true,
+        scrub: true,
         start: "top 60%",
       },
       y: "100%",
-
     });
 
     if (window.innerWidth < 768) {
@@ -49,11 +49,11 @@ function AboutUsPage() {
         y: -100,
         duration: 1,
         opacity: 0,
-        scale:1.3,
+        scale: 1.3,
         scrollTrigger: {
           scroller: "body",
           trigger: "#about-us",
-       
+
           start: "top 70%",
         },
       });
@@ -65,7 +65,7 @@ function AboutUsPage() {
         scrollTrigger: {
           scroller: "body",
           trigger: "#section1_about",
-         
+
           start: "top 27%",
         },
       });
@@ -78,6 +78,7 @@ function AboutUsPage() {
       ref={container}
       className="about-us relative   w-full py-10 lg:py-24 min-h-fit"
     >
+     
       <div className="about-us-container  w-[95%] lg:w-[80%]  mx-auto px-1 md:px-5  md:flex">
         {/* section  1 */}
         <div

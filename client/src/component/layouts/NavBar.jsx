@@ -38,6 +38,28 @@ function NavBar() {
     }
   };
 
+
+  const handleNavigation = (id) => {
+   
+    handleMenuBtn();
+    if (window.location.pathname === "/") {
+      // If already on homepage, scroll to #services
+      const servicesElement = document.getElementById(id);
+      servicesElement.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+
+    
+      setTimeout(() => {
+        const servicesElement = document.getElementById(id);
+        if (servicesElement) {
+          servicesElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); 
+    }
+  };
+
+
   useEffect(() => {
     let lastScrollTop = 0;
     const navbar = document.getElementById("nav-bar");
@@ -73,7 +95,9 @@ function NavBar() {
 
   useEffect(() => {}, [success, error, isAuthenticated]);
 
+
   return (
+
     <div
     style={{
       // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
@@ -81,8 +105,9 @@ function NavBar() {
         " rgba(0, 0, 0, 0.5) 100px 700px 300px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
     }}
       id="nav-bar"
-      className={`fixed  flex top-0 left-0 z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
+      className={`fixed   flex top-0 left-0 z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
     >
+      
       <RLink
         to={"/"}
         className="text-white cursor-pointer  logo  font-bold text-3xl"
@@ -131,9 +156,9 @@ function NavBar() {
             className="group overflow-hidden  py-[2px] relative w-fit px-4"
           >
             <>
-              <a
-                href={`/#${e.href}`}
-                onClick={handleMenuBtn}
+              <button
+                
+                onClick={()=>{handleNavigation(e.href)}}
                 className="relative  uppercase text-xl font-sans font-semibold leading-none tracking-tighter "
               >
                 {e.name}
@@ -145,7 +170,7 @@ function NavBar() {
                 <span
                   className={`span2  transition-transform duration-300 ease-in-out    absolute w-full  h-[4px] bg-white bottom-0 left-0`}
                 ></span>
-              </a>
+              </button>
             </>
           </div>
         ))}
@@ -215,8 +240,8 @@ function NavBar() {
                   >
                     (
                     <>
-                      <a href={`/#${o.href}`}>{o.name}</a>
-                      <a href={`/#${o.href}`}>{o.name}</a>{" "}
+                      <button onClick={()=>{handleNavigation(o.href)}} >{o.name}</button>
+                      <button  onClick={()=>{handleNavigation(o.href)}}>{o.name}</button>{" "}
                     </>
                     )
                   </div>

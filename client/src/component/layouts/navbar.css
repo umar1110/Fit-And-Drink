@@ -1,32 +1,61 @@
-a .span1{
+button .span1{
     transform: translateX(-120%);
     
 }
-a:hover .span1 {
+button:hover .span1 {
     transform:  translateX(0);
 
 }
-a:hover .span2{
+button:hover .span2{
     transform:  translateX(0);
 
 }
 
 
-a:not(:hover) .span1 {
+button:not(:hover) .span1 {
     opacity: 0;
 
 }
-a:not(:hover) .span2 {
+button:not(:hover) .span2 {
     transform: translateX(130%);
     opacity: 1;
     
 }
 
 
-a .span2{
+button .span2{
     opacity: 0;
 }
+ 
 
+a .span1{
+  transform: translateX(-120%);
+  
+}
+a:hover .span1 {
+  transform:  translateX(0);
+
+}
+a:hover .span2{
+  transform:  translateX(0);
+
+}
+
+
+a:not(:hover) .span1 {
+  opacity: 0;
+
+}
+a:not(:hover) .span2 {
+  transform: translateX(130%);
+  opacity: 1;
+  
+}
+
+
+a .span2{
+  opacity: 0;
+}
 
 .cross-container {
     position: relative;

@@ -13,34 +13,37 @@ function HomeProducts() {
   
 
   useGSAP(() => {
-    if (window.innerWidth < 768) {
-      const cards = document.querySelectorAll(".featured-product-cards");
-      cards.forEach((card, index) => {
-        gsap.from(card, {
+   
+    if(products.length > 0 && !loading){
+      if (window.innerWidth < 768) {
+        const cards = document.querySelectorAll(".featured-product-cards");
+        cards.forEach((card, index) => {
+          gsap.from(card, {
+            y: "20%",
+            x: "20",
+            opacity: 0,
+            scrollTrigger: {
+              trigger: card,
+              scroller: "body",
+              start: "top 80%",
+              end: "top top",
+            },
+          });
+        });
+      } else {
+        gsap.from(".featured-product-cards", {
+          x: "100%",
           y: "20%",
-          x: "20",
           opacity: 0,
+          stagger: 0.2,
+          duration: 0.7,
           scrollTrigger: {
-            trigger: card,
             scroller: "body",
-            start: "top 80%",
-            end: "top top",
+            trigger: ".featured-products-container",
+            start: "top 60%",
           },
         });
-      });
-    } else {
-      gsap.from(".featured-product-cards", {
-        x: "100%",
-        y: "20%",
-        opacity: 0,
-        stagger: 0.2,
-        duration: 0.7,
-        scrollTrigger: {
-          scroller: "body",
-          trigger: ".featured-products-container",
-          start: "top 60%",
-        },
-      });
+      }
     }
   });
 

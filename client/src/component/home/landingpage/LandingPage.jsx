@@ -9,23 +9,7 @@ function LandingPage() {
 
 
   useGSAP(() => {
-    gsap.from(".mob-landing-imgs1", {
-      x: -140,
-      opacity: 0,
-      duration: 0.5,
-    });
-    gsap.from(".mob-landing-imgs2", {
-      x: 140,
-      opacity: 0,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: ".mob-imges-div",
-        scroller: "body",
-       
-        start: "top 30%",
-        end: "top top",
-      },
-    });
+   
 
 
     gsap.from("#landing_background_pic", {

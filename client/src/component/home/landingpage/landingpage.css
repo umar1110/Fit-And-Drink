@@ -1,19 +1,7 @@
 
 
 
-.inner1-right-landing-page{
-    background-image: url("../../../Assets/images/waterTreatment.jpg");
-    background-size: cover; /* Makes the image cover the entire div */
-      background-position: center; /* Centers the image in the div */
-      background-repeat: no-repeat; /* Ensures the image doesn't repeat */
-  }
-  .inner2-right-landing-page{
-    background-image: url("../../../Assets/images/waterTreatement2.jpg");
-    background-size: cover; /* Makes the image cover the entire div */
-      background-position: center; /* Centers the image in the div */
-      background-repeat: no-repeat; /* Ensures the image doesn't repeat */
-  }
-  
+
 
   @media (max-width: 768px) {
     .landing-page {

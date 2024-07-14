@@ -65,14 +65,14 @@ function HomeProducts() {
                     <Link
                       to={`/product/${product._id}`}
                       key={product._id}
-                      className="featured-product-cards my-4 w-full  sm:w-[250px] md:w-[300px] group relative border-2 border-[#dadada]  rounded-lg overflow-hidden pb-4 min-h-fit"
+                      className="featured-product-cards my-4 w-full  sm:w-[250px] md:w-[300px] group relative border-2 border-[#dadada]  rounded-lg overflow-hidden pb-4 min-h-[500px] flex flex-col items-center justify-center "
                     >
                       {/* Section 1 image */}
-                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                        <img
+                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none min-h-[400px] group-hover:opacity-75 lg:h-80">
+                        <img 
                           alt={product.title}
                           src={product.images[0].url}
-                          className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                          className="h-full w-full "
                         />
                       </div>
                       {/* Section 2 name and btn */}

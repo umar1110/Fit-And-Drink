@@ -1,10 +1,8 @@
-import "./landingpage.css";
-import mobImg1 from "../../../Assets/images/waterTreatment.jpg";
-import mobImg2 from "../../../Assets/images/waterTreatement2.jpg";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import background from "../../../Assets/images/FitNDrinkLandingPageBackground.jfif";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import background from "../../../Assets/images/landingPageBackground.png";
+import "./landingpage.css";
 function LandingPage() {
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
@@ -40,34 +38,36 @@ function LandingPage() {
   });
   return (
     <section>
-      <div  className="landing-page relative text-white min-h-[90vh] h-fit my-14  max-w-screen w-full flex-col md:flex-row flex md:justify-end  items-center  md:items-start "
+      <div  className="landing-page relative text-white  min-h-fit md:h-[80vh]   my-14  max-w-screen w-full flex-col md:flex-row flex md:justify-end  items-center  md:items-start "
       >
         <div style={{
            background: "linear-gradient(to bottom, #0285AD, #006482,#004053)"
         }} className={"absolute hidden md:block -z-10  h-full w-full"}> </div>
+
+
         <img
           src={background}
           alt="Background Of landing page"
           id ={"landing_background_pic"}
-          className={"absolute hidden md:block -z-10  h-full w-full"}
+          className={"absolute top-0 hidden md:block -z-10  h-full   "}
         />
 
         {/* Left Side  */}
-        <div className="left-landing-page py-20 md:py-40  w-[90%] md:w-1/2 flex md:justify-start  px-6 xl:pl-24   ">
-          <div className="left-inner-container space-y-9 md:space-y-12 lg:w-[75%]">
-            <h1 className="text-3xl sm:text-5xl font-semibold">
+        <div className="left-landing-page my-16 md:my-0  h-full  w-[90%] md:w-1/2  items-center flex md:justify-start  px-6 xl:pl-72   ">
+          <div className="left-inner-container space-y-9 md:space-y-12 lg:w-[100%]">
+            <h1 className="text-3xl text-center md:text-start sm:text-5xl font-semibold">
               Building a more <br className=" md:hidden lg:block" />{" "}
               water-secure world
             </h1>
-            <h3 className="md:text-xl">
+            <h3 className="md:text-xl text-center md:text-start ">
               Innovating, collaborating and connecting diverse capabilities,
               solutions and know-how, to champion those who make water work
               every day.
             </h3>
             <div className="btn text-center md:text-start">
-              <button className="landing-page-learn-more   font-bold  px-11 py-3  border-2 border-[#00E4B3] rounded-full text-lg hover:bg-[#00E4B3] hover:border-blue-700  hover:text-black  ">
+              <a href={"/#services"} className="landing-page-learn-more   font-bold  px-11 py-3  border-2 border-[#00E4B3] rounded-full text-lg hover:bg-[#00E4B3] hover:border-blue-700  hover:text-black  ">
                 Learn More
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ function LandingPage() {
 
         
         {/* Right Side Mobile */}
-        <div className="right-landing-page-mob  md:hidden w-full  ">
+        {/* <div className="right-landing-page-mob  md:hidden w-full  ">
           <div className="mob-imges-div space-y-3 pb-12">
             <img
               src={mobImg1}
@@ -98,7 +98,7 @@ function LandingPage() {
               }
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

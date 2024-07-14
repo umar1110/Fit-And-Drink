@@ -28,6 +28,9 @@ function ContactUsPage() {
       if (data.success) {
         toast.dismiss();
         toast.success("Message have been send.");
+        setEmail("")
+        setname("")
+        setmessage("")
       }
     } catch (error) {
       toast.dismiss();

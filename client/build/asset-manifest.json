@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4dddceb.css",
-    "main.js": "/static/js/main.a9faeaf5.js",
+    "main.css": "/static/css/main.c6c1c71a.css",
+    "main.js": "/static/js/main.b36d51a4.js",
     "static/js/453.419a5d54.chunk.js": "/static/js/453.419a5d54.chunk.js",
+    "static/media/landingPageBackground.png": "/static/media/landingPageBackground.a33c5c265690da9b2806.png",
+    "static/media/AboutUs.jpeg": "/static/media/AboutUs.9fafbfe056e2571c2382.jpeg",
+    "static/media/service3.jpeg": "/static/media/service3.657b4371c3771b233628.jpeg",
+    "static/media/service2.jpeg": "/static/media/service2.1aed76d042a6a3830d7f.jpeg",
     "static/media/WebLogo.png": "/static/media/WebLogo.3a39b173c458a9d07933.png",
-    "static/media/FitNDrinkLandingPageBackground.jfif": "/static/media/FitNDrinkLandingPageBackground.01f9c38cbf50c7ab837a.jfif",
-    "static/media/waterTreatement2.jpg": "/static/media/waterTreatement2.2b28b20b673160a40abb.jpg",
-    "static/media/waterTreatment.jpg": "/static/media/waterTreatment.5132439394f8105f4752.jpg",
+    "static/media/service1.jpeg": "/static/media/service1.1b0d99c792c23f58c890.jpeg",
+    "static/media/service4.jpg": "/static/media/service4.95b7465522a2b3238eb3.jpg",
     "static/media/LogoCompany.jpeg": "/static/media/LogoCompany.3b4656ef1849a82c8543.jpeg",
+    "static/media/service05.webp": "/static/media/service05.d1b87e562a5dfb3f50fe.webp",
     "index.html": "/index.html",
-    "main.f4dddceb.css.map": "/static/css/main.f4dddceb.css.map",
-    "main.a9faeaf5.js.map": "/static/js/main.a9faeaf5.js.map",
+    "main.c6c1c71a.css.map": "/static/css/main.c6c1c71a.css.map",
+    "main.b36d51a4.js.map": "/static/js/main.b36d51a4.js.map",
     "453.419a5d54.chunk.js.map": "/static/js/453.419a5d54.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4dddceb.css",
-    "static/js/main.a9faeaf5.js"
+    "static/css/main.c6c1c71a.css",
+    "static/js/main.b36d51a4.js"
   ]
 }

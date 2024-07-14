@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../layouts/Footer/Footer";
 import ServicesPage from "../services/ServicesPage";
 import AboutUsPage from "./AboutUs/AboutUsPage";
 import ContactUsPage from "./Contact/ContactUsPage";
@@ -11,11 +10,11 @@ function Home() {
   return (
     <div id="homePage">
       <LandingPage />
-      <AboutUsPage />
       <HomeProducts/>
       <ServicesPage/>
+      <AboutUsPage />
       <ContactUsPage/>
-      <Footer/>
+   
       </div>
   );
 }

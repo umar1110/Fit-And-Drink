@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer';
 
-import catchAsyncFuncError from '../utils/catchAsyncFuntionErrors.js';
 
 export const sendEmail = async(message,name , userEmail) => {
     try {

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import mobImg1 from "../../../Assets/images/waterTreatment.jpg";
+import AboutUsImage from "../../../Assets/images//AboutUs.jpeg";
 
 function AboutUsPage() {
   const container = useRef(null);
@@ -83,12 +83,18 @@ function AboutUsPage() {
         {/* section  1 */}
         <div
           id="section1_about"
-          className="section1_about w-[95%] md:w-1/2 mx-auto "
+          
+          className="section1_about overflow-hidden rounded-xl  w-[95%] md:w-[40%] mx-auto "
+          style={{
+            // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
+            boxShadow:
+              " rgba(0, 0, 0, 0.5) 10px 7px 30px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
+          }}
         >
           <img
-            src={mobImg1}
+            src={AboutUsImage}
             alt="About_us Pic"
-            className="w-full rounded-xl md:h-full lg:w-[90%] "
+            className="w-full  md:h-full  "
           />
         </div>
 
@@ -118,7 +124,7 @@ function AboutUsPage() {
 
       {/* Animations Line 1  */}
       <div
-        className="animated-down-line2 absolute top-0 left-0 overflow-hidden mx-1 md:mx-4  w-[3px] md:w-[5px]   "
+        className="animated-down-line2 absolute top-0 left-0 overflow-hidden mx-1 md:mx-10  w-[3px] md:w-[5px]   "
         id="animation-for-aboutus"
         style={{
           borderRadius: "70%",
@@ -136,7 +142,7 @@ function AboutUsPage() {
       </div>
       {/* Animations Line 2  */}
       <div
-        className="animated-down-line2 absolute top-0 right-0 overflow-hidden mx-1 md:mx-4 w-[3px] md:w-[5px]  "
+        className="animated-down-line2 absolute top-0 right-0 overflow-hidden mx-1 md:mx-10 w-[3px] md:w-[5px]  "
         id="animation-for-aboutus"
         style={{
           borderRadius: "70%",

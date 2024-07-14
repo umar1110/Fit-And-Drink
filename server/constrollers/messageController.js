@@ -20,6 +20,7 @@ export const sendMessage = catchAsyncFuncError(async (req, res) => {
 
   try {
     if (name && email && message) {
+      console.log("message controler" ,name , email)
       await sendEmail(message, name, email);
     }
   } catch (error) {
@@ -32,6 +33,7 @@ export const sendMessage = catchAsyncFuncError(async (req, res) => {
     message,
   });
 
+  
   await newMessage.save();
 
   return res.status(200).json({

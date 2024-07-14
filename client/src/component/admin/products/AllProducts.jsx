@@ -49,7 +49,7 @@ function AllProducts() {
     try {
       toast.loading("Updating product");
       const { data } = await axios.put(
-        `http://localhost:4000/api/v1/product/${id}`
+        `/api/v1/product/${id}`
       );
       toast.dismiss();
       if (data.success) {

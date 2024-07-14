@@ -23,7 +23,7 @@ function LoginPage() {
 
       const url = `/api/v1/login/admin`;
 
-      const { data } = await axios.post(url, { username, password }, config);
+      const { data } = await axios.post(url, { username:username.toLowerCase(), password }, config);
 
       console.log(data);
       toast.dismiss();

@@ -75,8 +75,13 @@ function NavBar() {
 
   return (
     <div
+    style={{
+      // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
+      boxShadow:
+        " rgba(0, 0, 0, 0.5) 100px 700px 300px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
+    }}
       id="nav-bar"
-      className={`fixed flex top-0 left-0  z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
+      className={`fixed  flex top-0 left-0 z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
     >
       <RLink
         to={"/"}
@@ -150,13 +155,13 @@ function NavBar() {
             <div className="group overflow-hidden  py-[2px] relative w-fit px-4">
               <>
                 <Link
-                to={"/admin/dashboard"}
-                  onClick={()=>{
+                  to={"/admin/dashboard"}
+                  onClick={() => {
                     handleMenuBtn();
                   }}
                   className="relative  uppercase text-xl font-sans font-semibold leading-none tracking-tighter "
                 >
-                  Admin Dashboard 
+                  Admin Dashboard
                   <span
                     className={`span1  transition-transform duration-300 ease-in-out    absolute w-full h-[4px] bg-white bottom-0 left-0`}
                   ></span>
@@ -188,39 +193,75 @@ function NavBar() {
       </div>
       {/* Desktop options */}
       <div
-        className={` desktop-options font-light gap-3 font-['NeueMontreal'] h-[35px] mdd:flex  hidden   `}
+        className={` w-full desktop-options font-light gap-3 font-['NeueMontreal'] h-[35px] mdd:flex  hidden   `}
       >
-        {[
-          { name: "Home", href: "" },
-          { name: "Products", href: "products" },
-          { name: "Services", href: "services" },
-          { name: "About Us", href: "about-us" },
-          { name: "contact us", href: "contactus" },
-        ].map((o, idx) => {
-          return (
-            <div
-              key={idx + 100}
-              className={`option-box relative text-white   ${
-                idx === 3 ? "ml-48" : "ml-6"
-              }  min-w-fit  text-[20px] overflow-hidden `}
-            >
-              <div
-                className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[45%]   flex-col  transition-transform duration-300`}
-              >
-                (
-                <>
-                  <a href={`/#${o.href}`}>{o.name}</a>
-                  <a href={`/#${o.href}`}>{o.name}</a>{" "}
-                </>
-                )
-              </div>
-              <span
-                className={`absolute  bg-white bottom-0 -translate-x-[110%] transition-transform duration-300 ease-in-out   w-full h-[2px] `}
-              ></span>
-            </div>
-          );
-        })}
-        {isAuthenticated && (
+        <div className="absolute desktop-options flex top-[50%] -translate-y-[50%] left-[50%] h-[35px] w-fit -translate-x-[50%] ">
+          {[
+            { name: "Home", href: "" },
+            { name: "Products", href: "products" },
+            { name: "Services", href: "services" },
+            { name: "About Us", href: "about-us" },
+            { name: "contact us", href: "contactus" },
+          ].map((o, idx) => {
+            if (idx < 4) {
+              return (
+                <div
+                  key={idx + 100}
+                  className={`option-box relative text-white   
+                    ml-6 min-w-fit  text-[20px] overflow-hidden `}
+                >
+                  <div
+                    className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[45%]   flex-col  transition-transform duration-300`}
+                  >
+                    (
+                    <>
+                      <a href={`/#${o.href}`}>{o.name}</a>
+                      <a href={`/#${o.href}`}>{o.name}</a>{" "}
+                    </>
+                    )
+                  </div>
+                  <span
+                    className={`absolute  bg-white bottom-0 -translate-x-[110%] transition-transform duration-300 ease-in-out   w-full h-[2px] `}
+                  ></span>
+                </div>
+              );
+            }
+          })}
+        </div>
+        {/* Part 2 */}
+        <div className="absolute desktop-options flex top-[50%] -translate-y-[50%] right-0 -translate-x-[50%] h-[35px] w-fit ">
+          {[
+            { name: "Home", href: "" },
+            { name: "Products", href: "products" },
+            { name: "Services", href: "services" },
+            { name: "About Us", href: "about-us" },
+            { name: "contact us", href: "contactus" },
+          ].map((o, idx) => {
+            if (idx > 3) {
+              return (
+                <div
+                  key={idx + 100}
+                  className={`option-box relative text-white   
+                    ml-6 min-w-fit  text-[20px] overflow-hidden `}
+                >
+                  <div
+                    className={`up-down-box   relative h-full  cursor-pointer flex justify-center   translate-y-[45%]   flex-col  transition-transform duration-300`}
+                  >
+                    (
+                    <>
+                      <a href={`/#${o.href}`}>{o.name}</a>
+                      <a href={`/#${o.href}`}>{o.name}</a>{" "}
+                    </>
+                    )
+                  </div>
+                  <span
+                    className={`absolute  bg-white bottom-0 -translate-x-[110%] transition-transform duration-300 ease-in-out   w-full h-[2px] `}
+                  ></span>
+                </div>
+              );
+            }
+          })}
+           {isAuthenticated && (
           <button
             className={` logout flex justify-center items-center ml-2 -mr-4 space-x-3`}
           >
@@ -327,6 +368,9 @@ function NavBar() {
             </svg>
           </button>
         )}
+        </div>
+
+       
       </div>
     </div>
   );

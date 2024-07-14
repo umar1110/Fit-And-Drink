@@ -19,7 +19,7 @@ function AddUser() {
       await axios.post(
         url,
         {
-          username,
+          username:username.toLowerCase(),
           password,
         },
         config

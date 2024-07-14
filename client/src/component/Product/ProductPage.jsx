@@ -46,10 +46,11 @@ function ProductPage() {
           {loading ? (
             <></>
           ) : (
-            <div className="Product-Page py-16  md:pt-[5rem] lg:w-[90%] xl:w-[80%]  mx-auto">
+            <div className="Product-Page py-20  md:pt-[5rem] lg:w-[90%] xl:w-[80%]  mx-auto">
               {/* Images and features */}
-              <div className="image-feature-name md:flex h-fit md:space-x-6  md:items-center lg:items-start ">
-                <Carousel className="w-full text-center md:w-1/2 lg:w-[50%] ">
+              <div className="image-feature-name md:flex h-fit  md:space-x-6  md:items-center lg:items-start ">
+                <Carousel autoPlay={true} infiniteLoop={true} showStatus={false} swipeable={true} stopOnHover={true}
+                className="w-full text-center md:w-1/2 lg:w-[50%] ">
                   {product.images.map((i, idx) => (
                     <div>
                       <img
@@ -58,7 +59,7 @@ function ProductPage() {
                         alt={i.url}
                         className="md:rounded-2xl"
                       />
-                      <p className="legend">{product.title}</p>
+                    
                     </div>
                   ))}
                 </Carousel>

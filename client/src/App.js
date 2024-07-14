@@ -8,7 +8,7 @@ import AllProducts from "./component/admin/products/AllProducts";
 import Home from "./component/home/Home";
 import NavBar from "./component/layouts/NavBar";
 import { ProductsContextProvider } from "./context/productsContext.js";
-
+import Footer from "./component/layouts/Footer/Footer.jsx"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Adminmessages from "./component/admin/messages/Adminmessages.jsx";
@@ -85,15 +85,15 @@ const [mesuccess, setmesuccess] = useState(false)
 
         setisAuthenticated(true);
         setmesuccess(true)
-        console.log(data);
+       
       } else {
-        console.log(data.message);
+       
         setmeError(true);
         setmesuccess(false)
         setisAuthenticated(false);
       }
     } catch (error) {
-      console.log(error.message);
+      
       setmesuccess(false)
 
       setisAuthenticated(false);
@@ -103,7 +103,7 @@ const [mesuccess, setmesuccess] = useState(false)
     }
   };
   useEffect(() => {
-    console.log("USeeffect in app.js");
+    
 
     if (meerror) {
       setmeError(null);
@@ -196,6 +196,7 @@ const [mesuccess, setmesuccess] = useState(false)
                     />
                   </Route>
                 </Routes>
+                <Footer/>
               </BrowserRouter>
             </div>
             <ToastContainer id="main" closeOnClick stacked closeButton />

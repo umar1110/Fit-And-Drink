@@ -18,15 +18,15 @@ function ServicesPage() {
       cards.forEach((card, index) => {
         const divsInsideCard = card.querySelectorAll("div");
         gsap.from(divsInsideCard, {
-          y: "-40%",
+          x: "-40%",
 
           opacity: 0,
           stagger: 0.2,
           scrollTrigger: {
             trigger: card,
             scroller: "body",
-            start: "top 60%",
-
+            start: "top 50%",
+          
             end: "top top",
           },
         });
@@ -111,179 +111,143 @@ function ServicesPage() {
 
   return (
     <>
-    <div className="relative">
-      <div id="services" className="services-container   mt-10 pb-16 ">
-        <h1 className="text-3xl bg-slate-100 py-6 text-center font-semibold md:font-bold my-8  md:text-4xl">
-          What We Offer
-        </h1>
-        {/* Service multiple cards */}
-        <div className="services-cards space-y-20  lg:space-y-12 w-[90%] lg:w-[75%] mx-auto  h-full">
-          {services.map((s, idx) => {
-            return (
-              <div key={idx}>
-                {/* Service Card  */}
+      <div className="relative">
+        <div id="services" className="services-container   mt-10 pb-16 ">
+          <h1 className="text-3xl bg-slate-100 py-6 text-center font-semibold md:font-bold my-8  md:text-4xl">
+            What We Offer
+          </h1>
+          {/* Service multiple cards */}
+          <div className="services-cards space-y-20  lg:space-y-12 w-[90%] lg:w-[75%] mx-auto  h-full">
+            {services.map((s, idx) => {
+              return (
+                <div key={idx}>
+                  {/* Service Card  */}
 
-                {windowWidth > 768 ? (
-                  <>
-                    {idx % 2 === 0 ? (
-                      <>
-                        <div className="service-card  md:flex ">
-                          {/* image */}
-                          <div
-                            className="service-image  rounded-xl overflow-hidden w-[96%] sm:w-[60%] md:w-[40%] sm:h-[300px] md:h-[400px]  mx-auto "
-                            style={{
-                              // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
-                              boxShadow:
-                                " rgba(0, 0, 0, 0.5) 7px 10px 15px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
-                            }}
-                          >
-                            <img
-                              src={s.img}
-                              alt="service"
-                              className="w-full h-full "
-                            />
+                  {windowWidth > 768 ? (
+                    <>
+                      {idx % 2 === 0 ? (
+                        <>
+                          <div className="service-card  md:flex ">
+                            {/* image */}
+                            <div
+                              className="service-image  rounded-xl overflow-hidden w-[96%] sm:w-[60%] md:w-[40%] sm:h-[300px] md:h-[400px]  mx-auto "
+                              style={{
+                                // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
+                                boxShadow:
+                                  " rgba(0, 0, 0, 0.5) 7px 10px 15px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
+                              }}
+                            >
+                              <img
+                                src={s.img}
+                                alt="service"
+                                className="w-full h-full "
+                              />
+                            </div>
+                            {/* content */}
+                            <div className="service-content   flex flex-col items-center md:items-start md:justify-center  md:pl-12 md:text-start py-7 md:w-[60%] space-y-4">
+                              <h2 className="service-title leading-7 text-4xl md:text-5xl font-bold text-center md:text-start  mb-3">
+                                {s.title}
+                              </h2>
+                              <p className="service-description w-[80%] md:w-full mx-auto md:text-lg text-center md:text-start ">
+                                {s.description}
+                              </p>
+                            </div>
                           </div>
-                          {/* content */}
-                          <div className="service-content   flex flex-col items-center md:items-start md:justify-center  md:pl-12 md:text-start py-7 md:w-[60%] space-y-4">
-                            <h2 className="service-title leading-7 text-4xl md:text-5xl font-bold text-center md:text-start  mb-3">
-                              {s.title}
-                            </h2>
-                            <p className="service-description w-[80%] md:w-full mx-auto md:text-lg text-center md:text-start ">
-                              {s.description}
-                            </p>
+                        </>
+                      ) : (
+                        <>
+                          <div className="service-card  md:flex ">
+                            {/* content */}
+                            <div className="service-content   flex flex-col items-center md:items-start md:justify-center  md:pr-12 md:text-start py-7 md:w-[60%] space-y-4">
+                              <h2 className="service-title leading-7 text-4xl md:text-5xl font-bold text-center md:text-start  mb-3">
+                                {s.title}
+                              </h2>
+                              <p className="service-description w-[80%] md:w-full mx-auto md:text-lg text-center md:text-start ">
+                                {s.description}
+                              </p>
+                            </div>
+                            {/* image */}
+                            <div
+                              className="service-image bg-black rounded-xl overflow-hidden w-[96%] sm:w-[60%] sm:h-[300px] md:h-[400px] md:w-[40%]   mx-auto "
+                              style={{
+                                // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
+                                boxShadow:
+                                  " rgba(0, 0, 0, 0.5) -7px 10px 15px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
+                              }}
+                            >
+                              <img
+                                src={s.img}
+                                alt="service"
+                                className="w-full h-full "
+                              />
+                            </div>
                           </div>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <div className="service-card  md:flex">
+                        {/* image */}
+                        <div
+                          className="service-image bg-black rounded-xl overflow-hidden w-[96%] sm:w-[60%] md:w-[40%]   mx-auto "
+                          style={{
+                            // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
+                            boxShadow:
+                              " rgba(0, 0, 0, 0.5) 0px 3px 15px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
+                          }}
+                        >
+                          <img
+                            src={s.img}
+                            alt="service"
+                            className="w-full h-full"
+                          />
                         </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="service-card  md:flex ">
-                          {/* content */}
-                          <div className="service-content   flex flex-col items-center md:items-start md:justify-center  md:pr-12 md:text-start py-7 md:w-[60%] space-y-4">
-                            <h2 className="service-title leading-7 text-4xl md:text-5xl font-bold text-center md:text-start  mb-3">
-                              {s.title}
-                            </h2>
-                            <p className="service-description w-[80%] md:w-full mx-auto md:text-lg text-center md:text-start ">
-                              {s.description}
-                            </p>
-                          </div>
-                          {/* image */}
-                          <div
-                            className="service-image bg-black rounded-xl overflow-hidden w-[96%] sm:w-[60%] sm:h-[300px] md:h-[400px] md:w-[40%]   mx-auto "
-                            style={{
-                              // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
-                              boxShadow:
-                                " rgba(0, 0, 0, 0.5) -7px 10px 15px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
-                            }}
-                          >
-                            <img
-                              src={s.img}
-                              alt="service"
-                              className="w-full h-full "
-                            />
-                          </div>
+                        {/* content */}
+                        <div className="service-content   flex flex-col items-center md:items-start md:justify-center  md:pl-12 md:text-start py-7 md:w-[60%] space-y-4">
+                          <h2 className="service-title leading-9 text-4xl md:text-5xl font-bold text-center md:text-start  mb-3">
+                            {s.title}
+                          </h2>
+                          <p className="service-description w-[80%] md:w-full mx-auto md:text-lg text-center md:text-start ">
+                            {s.description}
+                          </p>
                         </div>
-                      </>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <div className="service-card  md:flex">
-                      {/* image */}
-                      <div
-                        className="service-image bg-black rounded-xl overflow-hidden w-[96%] sm:w-[60%] md:w-[40%]   mx-auto "
-                        style={{
-                          // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
-                          boxShadow:
-                            " rgba(0, 0, 0, 0.5) 0px 3px 15px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
-                        }}
-                      >
-                        <img
-                          src={s.img}
-                          alt="service"
-                          className="w-full h-full"
-                        />
                       </div>
-                      {/* content */}
-                      <div className="service-content   flex flex-col items-center md:items-start md:justify-center  md:pl-12 md:text-start py-7 md:w-[60%] space-y-4">
-                        <h2 className="service-title leading-9 text-4xl md:text-5xl font-bold text-center md:text-start  mb-3">
-                          {s.title}
-                        </h2>
-                        <p className="service-description w-[80%] md:w-full mx-auto md:text-lg text-center md:text-start ">
-                          {s.description}
-                        </p>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            );
-          })}
+                    </>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      {/* space div*/}
-      <div
-        className="  mt-[150px] mb-[60px] md:mt-[200px]  "
-        style={{
-       
-          
-          height: "40vh",
-         
-
-          // boxShadow: "rgba(105, 10, 176, 0.3) 0px 0px 5px",
-        }}
-      >
-       
-      </div>
-      
-      {/* Animatioin lines */}
-      <div className="animation-line-services-down absolute bottom-0 right-[50%] overflow-hidden  "
-        style={{
-          width: "3px",
-          borderRadius: "70%",
-          margin: "100px  auto 100px auto",
-          height: "40vh",
-          background: "blue",
-
-          // boxShadow: "rgba(105, 10, 176, 0.3) 0px 0px 5px",
-        }}
-      >
+        {/* space div*/}
         <div
-          id="animation-line-services-down"
-          className={`animationline w-full h-full absolute b   bg-[#c0bdbd] `}
-        ></div>
-      </div>
-      <div  className="animation-line-services-down absolute sm:block hidden   bottom-0 right-[20%] overflow-hidden  "
-        style={{
-          width: "3px",
-          borderRadius: "70%",
-          margin: "100px  auto 100px auto",
-          height: "40vh",
-          background: "blue",
+          className="  mt-[150px] mb-[60px] md:mt-[200px]  "
+          style={{
+            height: "40vh",
 
-          // boxShadow: "rgba(105, 10, 176, 0.3) 0px 0px 5px",
-        }}
-      >
-        <div
-          id="animation-line-services-down"
-          className={`animationline w-full h-full absolute b   bg-[#c0bdbd] `}
+            // boxShadow: "rgba(105, 10, 176, 0.3) 0px 0px 5px",
+          }}
         ></div>
-      </div>
-      <div className="animation-line-services-down absolute sm:block hidden  bottom-0 left-[20%] overflow-hidden  "
-        style={{
-          width: "3px",
-          borderRadius: "70%",
-          margin: "100px  auto 100px auto",
-          height: "40vh",
-          background: "blue",
 
-          // boxShadow: "rgba(105, 10, 176, 0.3) 0px 0px 5px",
-        }}
-      >
+        {/* Animatioin lines */}
         <div
-          id="animation-line-services-down"
-          className={`animationline w-full h-full absolute b   bg-[#c0bdbd] `}
-        ></div>
-      </div>
+          className="animation-line-services-down absolute bottom-0 right-[50%] overflow-hidden  "
+          style={{
+            width: "3px",
+            borderRadius: "70%",
+            margin: "100px  auto 100px auto",
+            height: "40vh",
+            background: "blue",
+
+            // boxShadow: "rgba(105, 10, 176, 0.3) 0px 0px 5px",
+          }}
+        >
+          <div
+            id="animation-line-services-down"
+            className={`animationline w-full h-full absolute b   bg-[#c0bdbd] `}
+          ></div>
+        </div>
       </div>
     </>
   );

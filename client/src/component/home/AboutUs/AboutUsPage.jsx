@@ -76,7 +76,7 @@ function AboutUsPage() {
     <div
       id="about-us"
       ref={container}
-      className="about-us relative   w-full py-10 lg:py-24 min-h-fit"
+      className="about-us relative mb-20  w-full py-10 lg:py-24 min-h-fit"
     >
      
       <div className="about-us-container  w-[95%] lg:w-[80%]  mx-auto px-1 md:px-5  md:flex">

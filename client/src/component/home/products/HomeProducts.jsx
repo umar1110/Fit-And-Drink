@@ -14,7 +14,7 @@ function HomeProducts() {
 
   useGSAP(() => {
    
-    if(products.length > 0 && !loading){
+    
       if (window.innerWidth < 768) {
         const cards = document.querySelectorAll(".featured-product-cards");
         cards.forEach((card, index) => {
@@ -44,7 +44,7 @@ function HomeProducts() {
           },
         });
       }
-    }
+    
   });
 
   return (

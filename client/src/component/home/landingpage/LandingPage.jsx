@@ -64,25 +64,7 @@ function LandingPage() {
         </div>
 
         
-        {/* Right Side Mobile */}
-        {/* <div className="right-landing-page-mob  md:hidden w-full  ">
-          <div className="mob-imges-div space-y-3 pb-12">
-            <img
-              src={mobImg1}
-              alt="Water Treatement Plant"
-              className={
-                "mob-landing-imgs1 rounded-xl w-[96vw] h-[93vw] mx-auto"
-              }
-            />
-            <img
-              src={mobImg2}
-              alt="Water Treatement Plant"
-              className={
-                "mob-landing-imgs2 rounded-xl w-[96vw] h-[93vw] mx-auto"
-              }
-            />
-          </div>
-        </div> */}
+       
       </div>
     </section>
   );

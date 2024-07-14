@@ -4,16 +4,29 @@ import AboutUsPage from "./AboutUs/AboutUsPage";
 import ContactUsPage from "./Contact/ContactUsPage";
 import LandingPage from "./landingpage/LandingPage";
 import HomeProducts from "./products/HomeProducts";
-function Home() {
+import Loader from "../../component/layouts/Loader/Loader"
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+function Home({loading}) {
+
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 
 
   return (
     <div id="homePage">
       <LandingPage />
-      <HomeProducts/>
-      <ServicesPage/>
-      <AboutUsPage />
-      <ContactUsPage/>
+      <>
+      { loading ? <Loader/>  : 
+       
+       <> <HomeProducts/>
+      </>
+      }
+       <ServicesPage/>
+       <AboutUsPage />
+       <ContactUsPage/>
+      </>
    
       </div>
   );

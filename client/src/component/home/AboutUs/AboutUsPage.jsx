@@ -1,13 +1,11 @@
-import React, { useRef } from "react";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import React, { useRef } from "react";
 import AboutUsImage from "../../../Assets/images//AboutUs.jpeg";
 
 function AboutUsPage() {
   const container = useRef(null);
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
+
 
   useGSAP(() => {
     gsap.to(".animated-up-line-about", {
@@ -70,7 +68,7 @@ function AboutUsPage() {
         },
       });
     }
-  });
+  }) 
 
   return (
     <div

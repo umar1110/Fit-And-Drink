@@ -115,7 +115,7 @@ const [mesuccess, setmesuccess] = useState(false)
 
   return (
     <>
-      {!loading && (
+      
         <MeContextProvider
           value={{
             me: me,
@@ -143,9 +143,9 @@ const [mesuccess, setmesuccess] = useState(false)
               <BrowserRouter>
                 <NavBar />
                 <Routes>
-                  <Route exact path="/" element={<Home />} />
-                  <Route path="/product/:id" element={<ProductPage />} />
+                  <Route exact path="/" element={<Home loading={loading}  />} />
                   <Route path="/admin/login" element={<LoginPage />} />
+                  <Route path="/product/:id" element={<ProductPage />} />
 
                   <Route
                     path="/admin/dashboard"
@@ -202,7 +202,7 @@ const [mesuccess, setmesuccess] = useState(false)
             <ToastContainer id="main" closeOnClick stacked closeButton />
           </ProductsContextProvider>
         </MeContextProvider>
-      )}
+      
     </>
   );
 }

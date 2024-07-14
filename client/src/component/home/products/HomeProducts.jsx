@@ -1,15 +1,12 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React from "react";
 import { Link } from "react-router-dom";
 import useProducts from "../../../context/productsContext";
 
 function HomeProducts() {
   const { products, loading } = useProducts();
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
-
+  
   
 
   useGSAP(() => {
@@ -66,12 +63,19 @@ function HomeProducts() {
                   // Products
                   product.featured && (
                     <Link
+                    style={{
+                   
+                      boxShadow:
+                      " rgba(0, 0, 0, 0.5) 2px 10px 7px, rgba(0, 0, 0, 0.27) 0px 10px 10px",
+                    }}
+                    className="featured-product-cards my-4 w-full  sm:w-[250px] md:w-[300px] group relative border-2 border-[#dadada]  rounded-lg overflow-hidden pb-4 min-h-[500px] flex flex-col items-center justify-center "
                       to={`/product/${product._id}`}
                       key={product._id}
-                      className="featured-product-cards my-4 w-full  sm:w-[250px] md:w-[300px] group relative border-2 border-[#dadada]  rounded-lg overflow-hidden pb-4 min-h-[500px] flex flex-col items-center justify-center "
+                      
                     >
                       {/* Section 1 image */}
-                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none min-h-[400px] group-hover:opacity-75 lg:h-80">
+                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none  group-hover:opacity-75  max-h-[400px]
+                      max-w-[400px]">
                         <img 
                           alt={product.title}
                           src={product.images[0].url}
@@ -90,6 +94,7 @@ function HomeProducts() {
                     </Link>
                   )
               )}
+              
             </div>
           </div>
         </div>

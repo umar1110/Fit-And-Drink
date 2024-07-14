@@ -41,28 +41,39 @@ function AddProduct() {
 
   const handleFileChange = (e) => {
     const files = e.target.files;
-
+  
     if (files) {
       const newImages = [];
       const newImagesPreview = [];
-
-      Array.from(files).forEach((file) => {
-        const reader = new FileReader();
-
-        reader.onload = () => {
-          if (reader.readyState === 2 && reader.result) {
-            const imageUrl = reader.result;
-
-            newImages.push(file);
-            newImagesPreview.push(imageUrl);
-
-            setImages(newImages);
-            setImagesPreview(newImagesPreview);
-          }
-        };
-
-        reader.readAsDataURL(file);
-      });
+  
+      const readFile = (file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+  
+          reader.onload = () => {
+            if (reader.readyState === 2 && reader.result) {
+              resolve({ file, imageUrl: reader.result });
+            }
+          };
+  
+          reader.onerror = reject;
+  
+          reader.readAsDataURL(file);
+        });
+      };
+  
+      const readFiles = async (files) => {
+        for (const file of Array.from(files)) {
+          const result = await readFile(file);
+          newImages.push(result.file);
+          newImagesPreview.push(result.imageUrl);
+        }
+  
+        setImages(newImages);
+        setImagesPreview(newImagesPreview);
+      };
+  
+      readFiles(files);
     }
   };
 

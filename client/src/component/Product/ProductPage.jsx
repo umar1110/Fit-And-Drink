@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./ProductPage.css";
+import Loader from "../layouts/Loader/Loader";
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState();
@@ -44,11 +45,11 @@ function ProductPage() {
       {product && (
         <>
           {loading ? (
-            <></>
+            <> <Loader/> </>
           ) : (
             <div className="Product-Page py-20  md:pt-[5rem] lg:w-[90%] xl:w-[80%]  mx-auto">
               {/* Images and features */}
-              <div className="image-feature-name md:flex h-fit  md:space-x-6  md:items-center lg:items-start ">
+              <div className="image-feature-name md:flex mb-36  min-h-[80vh] md:space-x-6  md:items-center lg:items-start">
                 <Carousel autoPlay={true} infiniteLoop={true} showStatus={false} swipeable={true} stopOnHover={true}
                 className="w-full text-center md:w-1/2 lg:w-[50%] ">
                   {product.images.map((i, idx) => (
@@ -64,32 +65,31 @@ function ProductPage() {
                   ))}
                 </Carousel>
 
-                <div className="name-features w-full md:w-1/2 px-4  md:px-0 ">
-                  <h1 className="product-name text-center text-3xl md:text-4xl my-4 font-bold">
+                <div className="name-features w-full md:w-1/2 px-4  h-full  md:px-0 flex flex-col  ">
+                  <h1 className="product-name  text-center md:text-start  text-3xl md:text-4xl my-4 font-bold">
                     {product.title}
                   </h1>
                   <div
-                    className="html-string product-features  leading-7"
+                    className="html-string product-features leading-7  "
                     dangerouslySetInnerHTML={{ __html: product.features }}
                   ></div>
                 </div>
               </div>
 
               {/* Specifications */}
-              <div className="specs my-6 space-y-7 px-2 md:px-0">
-                <h3 className="Spec-heading font-semibold text-4xl text-center">
+              <div className="specs my-16  px-2 md:px-0">
+                <h3 className="Spec-heading my-7 font-semibold text-4xl text-center">
                   Specifications
                 </h3>
                 <div
-                  className="html-string product-specs mdd:w-[80%] mx-auto "
+                  className="html-string product-specs shadow-xl !mdd:w-[80%] mx-auto  "
                   dangerouslySetInnerHTML={{ __html: product.specs }}
                 ></div>
               </div>
 
-             
               
               {/* Overview */}
-              <div className="overview 3">
+              <div className="overview 3   px-3">
                 <h3 className="Spec-heading font-semibold text-4xl text-center mb-3">
                   Overview
                 </h3>

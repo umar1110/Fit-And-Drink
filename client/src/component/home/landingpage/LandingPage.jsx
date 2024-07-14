@@ -1,12 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import background from "../../../Assets/images/landingPageBackground.png";
 import "./landingpage.css";
 function LandingPage() {
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
-
+  
 
   useGSAP(() => {
    

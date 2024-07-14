@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useEffect, useState } from "react";
 import service5 from "../../Assets/images/service05.webp";
 import service1 from "../../Assets/images/service1.jpeg";
@@ -9,54 +8,36 @@ import service3 from "../../Assets/images/service3.jpeg";
 import service4 from "../../Assets/images/service4.jpg";
 function ServicesPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
+  
 
   useGSAP(() => {
     const cards = document.querySelectorAll(".service-card");
-    if (window.innerWidth < 768) {
-      cards.forEach((card, index) => {
-        const divsInsideCard = card.querySelectorAll("div");
-        gsap.from(divsInsideCard, {
-          x: "-40%",
 
-          opacity: 0,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: card,
-            scroller: "body",
-            start: "top 50%",
-          
-            end: "top top",
-          },
-        });
+    cards.forEach((card, index) => {
+      gsap.from(card, {
+        y: "30%",
+
+        opacity: 0,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: card,
+          scroller: "body",
+          start: "top 60%",
+
+         immediateRender:false,
+          end: "top top",
+        },
       });
-    } else {
-      cards.forEach((card, index) => {
-        const divsInsideCard = card.querySelectorAll("div");
-        gsap.from(divsInsideCard, {
-          y: "30%",
-
-          opacity: 0,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: card,
-            scroller: "body",
-            start: "top 60%",
-
-            end: "top top",
-          },
-        });
-      });
-    }
+    });
 
     gsap.to("#animation-line-services-down", {
       y: "100%",
       scrollTrigger: {
-        trigger: "#animation-line-services-down",
+        trigger: "#animation-line-services-up",
         scroller: "body",
         start: "top 50%",
         end: "top 0%",
+       
         scrub: true,
       },
     });
@@ -232,7 +213,8 @@ function ServicesPage() {
 
         {/* Animatioin lines */}
         <div
-          className="animation-line-services-down absolute bottom-0 right-[50%] overflow-hidden  "
+        id="animation-line-services-up"
+          className="animation-line-services-up absolute bottom-0 right-[50%] overflow-hidden  "
           style={{
             width: "3px",
             borderRadius: "70%",

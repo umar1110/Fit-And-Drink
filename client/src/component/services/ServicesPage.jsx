@@ -23,9 +23,9 @@ function ServicesPage() {
           trigger:card,
          
           start: window.innerWidth < 756 ? "top 70%" : "top 60%", 
-          end:  window.innerWidth < 756 ? "top -20%" :"top 0%",
+          end:  window.innerWidth < 756 ? "top -20%" :"top -10%",
         
-          
+         
           scrub: 1, 
          
         },

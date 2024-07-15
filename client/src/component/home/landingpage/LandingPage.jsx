@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import background from "../../../Assets/images/landingPageBackground.webp";
+import background from "../../../Assets/images/landingPageBackground.png";
 import "./landingpage.css";
 function LandingPage() {
   

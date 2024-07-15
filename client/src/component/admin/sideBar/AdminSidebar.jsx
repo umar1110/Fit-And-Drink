@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../Assets/images/LogoCompany.webp";
+import logo from "../../../Assets/images/LogoCompany.jpeg";
 import { Link } from "react-router-dom";
 function AdminSidebar() {
   return (

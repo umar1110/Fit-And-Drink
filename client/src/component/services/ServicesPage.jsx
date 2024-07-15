@@ -2,15 +2,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
 import service5 from "../../Assets/images/service05.webp";
-import service1 from "../../Assets/images/service1.webp";
-import service2 from "../../Assets/images/service2.webp";
-import service3 from "../../Assets/images/service3.webp";
-import service4 from "../../Assets/images/service4.webp";
-
+import service1 from "../../Assets/images/service1.jpeg";
+import service2 from "../../Assets/images/service2.jpeg";
+import service3 from "../../Assets/images/service3.jpeg";
+import service4 from "../../Assets/images/service4.jpg";
 
 function ServicesPage() {
- 
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const containerRef = useRef();
@@ -29,7 +26,7 @@ function ServicesPage() {
           start: window.innerWidth < 756 ? "top 70%" : "top 60%", 
           end:  window.innerWidth < 756 ? "top -20%" :"top -10%",
         
-         
+          
           scrub: 1, 
          
         },
@@ -101,10 +98,8 @@ function ServicesPage() {
   ];
 
   return (
-  
-   
-      <>
-        <div ref={containerRef} id="services"  className="relative">
+    <>
+      <div ref={containerRef} id="services"  className="relative">
         <div  className="services-container   mt-10 pb-16 ">
           <h1 className="text-3xl bg-slate-100 py-6 text-center font-semibold md:font-bold my-8  md:text-4xl">
             What We Offer
@@ -242,8 +237,8 @@ function ServicesPage() {
             className={`animationline w-full h-full absolute b   bg-[#c0bdbd] `}
           ></div>
         </div>
-      </div></>
-   
+      </div>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
-import AboutUsImage from "../../../Assets/images/AboutUs.webp";
+import AboutUsImage from "../../../Assets/images/AboutUs.jpeg";
 
 function AboutUsPage() {
   const containerRef = useRef();

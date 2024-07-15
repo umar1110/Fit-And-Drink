@@ -19,33 +19,7 @@ import LoginPage from "./component/admin/LoginPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.js";
 import AllUsers from "./component/admin/users/AllUsers.jsx";
 import AddUser from "./component/admin/users/AddUser.jsx";
-
-import service5 from "./Assets/images/service05.webp";
-import service1 from "./Assets/images/service1.webp";
-import service2 from "./Assets/images/service2.webp";
-import service3 from "./Assets/images/service3.webp";
-import service4 from "./Assets/images/service4.webp";
-import background from "./Assets/images/landingPageBackground.webp";
-import AboutUsImage from "./Assets/images/AboutUs.webp";
-import WebLogo from "./Assets/images/WebLogo.png";
-import usePreloadImages from "./context/usePreload.js";
-import Loader from "./component/layouts/Loader/Loader.jsx";
-
-const imageUrls = [
-  service1,
-  service2,
-  service3,
-  service4,
-  service5,
-  background,
-  AboutUsImage,
-  WebLogo
-];
 function App() {
-
-  const imagesLoaded = usePreloadImages(imageUrls);
-
-
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -140,102 +114,96 @@ const [mesuccess, setmesuccess] = useState(false)
   }, [isAuthenticated]); // Empty dependency array to run only once
 
   return (
-    
-   <>
-   {
-    !imagesLoaded ? <><Loader/></> : 
     <>
       
-    <MeContextProvider
-      value={{
-        me: me,
-        loading: meLoading,
-        error: meerror,
-        isAuthenticated: isAuthenticated,
-        fetchMe: fetchMe,
-        clearErrors: () => {
-          setmeError(null);
-        },
-      }}
-    >
-      <ProductsContextProvider
-        value={{
-          products,
-          loading,
-          error,
-          errorMessage,
-          fetchProducts,
-          clearErrors,
-          success,
-        }}
-      >
-        <div className="app p-0 m-0 max-w-screen overflow-hidden">
-          <BrowserRouter>
-            <NavBar />
-            <Routes>
-              <Route exact path="/" element={<Home loading={loading}  />} />
-              <Route path="/admin/login" element={<LoginPage />} />
-              <Route path="/product/:id" element={<ProductPage />} />
+        <MeContextProvider
+          value={{
+            me: me,
+            loading: meLoading,
+            error: meerror,
+            isAuthenticated: isAuthenticated,
+            fetchMe: fetchMe,
+            clearErrors: () => {
+              setmeError(null);
+            },
+          }}
+        >
+          <ProductsContextProvider
+            value={{
+              products,
+              loading,
+              error,
+              errorMessage,
+              fetchProducts,
+              clearErrors,
+              success,
+            }}
+          >
+            <div className="app p-0 m-0 max-w-screen overflow-hidden">
+              <BrowserRouter>
+                <NavBar />
+                <Routes>
+                  <Route exact path="/" element={<Home loading={loading}  />} />
+                  <Route path="/admin/login" element={<LoginPage />} />
+                  <Route path="/product/:id" element={<ProductPage />} />
 
-              <Route
-                path="/admin/dashboard"
-                element={
-                  <ProtectedRoute isAuthenticated={isAuthenticated} loading={meLoading}>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              >
-                <Route exact path="" element={<DashboardHome />} />
-                <Route
-                  path="products"
-                  element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
-                      <AdminProducts />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route exact path="" element={<AllProducts />} />
-                  <Route exact path="upload" element={<AddProduct />} />
-                </Route>
-                <Route
-                  path="users"
-                  element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
-                      <AdminUsers />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route exact path="" element={<AllUsers />} />
-                  <Route exact path="upload" element={<AddUser />} />
-                </Route>
-                <Route
-                  path="messages"
-                  element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
-                      <Adminmessages />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="users"
-                  element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
-                      <AdminUsers />
-                    </ProtectedRoute>
-                  }
-                />
-              </Route>
-            </Routes>
-            <Footer/>
-          </BrowserRouter>
-        </div>
-        <ToastContainer id="main" closeOnClick stacked closeButton />
-      </ProductsContextProvider>
-    </MeContextProvider>
-  
-</>
-   }
-   </>
+                  <Route
+                    path="/admin/dashboard"
+                    element={
+                      <ProtectedRoute isAuthenticated={isAuthenticated} loading={meLoading}>
+                        <AdminDashboard />
+                      </ProtectedRoute>
+                    }
+                  >
+                    <Route exact path="" element={<DashboardHome />} />
+                    <Route
+                      path="products"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
+                          <AdminProducts />
+                        </ProtectedRoute>
+                      }
+                    >
+                      <Route exact path="" element={<AllProducts />} />
+                      <Route exact path="upload" element={<AddProduct />} />
+                    </Route>
+                    <Route
+                      path="users"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
+                          <AdminUsers />
+                        </ProtectedRoute>
+                      }
+                    >
+                      <Route exact path="" element={<AllUsers />} />
+                      <Route exact path="upload" element={<AddUser />} />
+                    </Route>
+                    <Route
+                      path="messages"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
+                          <Adminmessages />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="users"
+                      element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}  loading={meLoading}>
+                          <AdminUsers />
+                        </ProtectedRoute>
+                      }
+                    />
+                  </Route>
+                </Routes>
+                <Footer/>
+              </BrowserRouter>
+            </div>
+            <ToastContainer id="main" closeOnClick stacked closeButton />
+          </ProductsContextProvider>
+        </MeContextProvider>
+      
+    </>
   );
 }
 

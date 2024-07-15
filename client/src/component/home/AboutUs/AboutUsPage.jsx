@@ -73,7 +73,7 @@ let container ;
   useEffect(()=>{
     
      container = containerRef.current;
-  })
+  },[])
   return (
     <div
       id="about-us"

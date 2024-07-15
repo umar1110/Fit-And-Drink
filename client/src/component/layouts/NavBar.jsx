@@ -108,12 +108,13 @@ function NavBar() {
       className={`fixed   flex top-0 left-0 z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
     >
       
-      <RLink
-        to={"/"}
+      {/*Logo  */}
+      <button
+       onClick={()=>{handleNavigation("homePage")}}
         className="text-white cursor-pointer  logo  font-bold text-3xl"
       >
         <img src={WebLogo} alt="" className="w-[150px] h-[40px]" />
-      </RLink>
+      </button>
 
       <div className={`btn  flex justify-center items-center gap-3 `}>
         <div
@@ -145,7 +146,7 @@ function NavBar() {
           } mdd:hidden overflow-hidden flex flex-col py-2 border-t-[1px]  w-[90%]`}
       >
         {[
-          { name: "Home  ", href: "" },
+          { name: "Home  ", href: "homePage" },
           { name: "Products", href: "products" },
           { name: "Services", href: "services" },
           { name: "About Us", href: "about-us" },
@@ -222,7 +223,7 @@ function NavBar() {
       >
         <div className="absolute desktop-options flex top-[50%] -translate-y-[50%] left-[50%] h-[35px] w-fit -translate-x-[50%] ">
           {[
-            { name: "Home", href: "" },
+            { name: "Home", href: "homePage" },
             { name: "Products", href: "products" },
             { name: "Services", href: "services" },
             { name: "About Us", href: "about-us" },

@@ -6,7 +6,11 @@ import service1 from "../../Assets/images/service1.webp";
 import service2 from "../../Assets/images/service2.webp";
 import service3 from "../../Assets/images/service3.webp";
 import service4 from "../../Assets/images/service4.webp";
+
+
 function ServicesPage() {
+ 
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const containerRef = useRef();
@@ -97,8 +101,10 @@ function ServicesPage() {
   ];
 
   return (
-    <>
-      <div ref={containerRef} id="services"  className="relative">
+  
+   
+      <>
+        <div ref={containerRef} id="services"  className="relative">
         <div  className="services-container   mt-10 pb-16 ">
           <h1 className="text-3xl bg-slate-100 py-6 text-center font-semibold md:font-bold my-8  md:text-4xl">
             What We Offer
@@ -236,8 +242,8 @@ function ServicesPage() {
             className={`animationline w-full h-full absolute b   bg-[#c0bdbd] `}
           ></div>
         </div>
-      </div>
-    </>
+      </div></>
+   
   );
 }
 

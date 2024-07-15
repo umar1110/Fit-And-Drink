@@ -1,12 +1,12 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef } from "react";
-import AboutUsImage from "../../../Assets/images//AboutUs.jpeg";
+import React, { useEffect, useRef } from "react";
+import AboutUsImage from "../../../Assets/images/AboutUs.webp";
 
 function AboutUsPage() {
-  const container = useRef(null);
+  const containerRef = useRef();
 
-
+let container ;
   useGSAP(() => {
     gsap.to(".animated-up-line-about", {
       scrollTrigger: {
@@ -68,12 +68,16 @@ function AboutUsPage() {
         },
       });
     }
-  }) 
+  },{scope:container}) 
 
+  useEffect(()=>{
+    
+     container = containerRef.current;
+  })
   return (
     <div
       id="about-us"
-      ref={container}
+      ref={containerRef}
       className="about-us relative mb-20  w-full py-10 lg:py-24 min-h-fit"
     >
      

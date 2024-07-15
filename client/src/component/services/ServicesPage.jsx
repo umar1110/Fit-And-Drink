@@ -1,31 +1,33 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import service5 from "../../Assets/images/service05.webp";
-import service1 from "../../Assets/images/service1.jpeg";
-import service2 from "../../Assets/images/service2.jpeg";
-import service3 from "../../Assets/images/service3.jpeg";
-import service4 from "../../Assets/images/service4.jpg";
+import service1 from "../../Assets/images/service1.webp";
+import service2 from "../../Assets/images/service2.webp";
+import service3 from "../../Assets/images/service3.webp";
+import service4 from "../../Assets/images/service4.webp";
 function ServicesPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  
 
+  const containerRef = useRef();
+  let container;
   useGSAP(() => {
     const cards = document.querySelectorAll(".service-card");
 
     cards.forEach((card, index) => {
       gsap.from(card, {
         y: "30%",
-
         opacity: 0,
-        stagger: 0.2,
+        stagger: 0.4,
         scrollTrigger: {
-          trigger: card,
-          scroller: "body",
-          start: "top 60%",
-
-         immediateRender:false,
-          end: "top top",
+          trigger:card,
+         
+          start: window.innerWidth < 756 ? "top 70%" : "top 60%", 
+          end:  window.innerWidth < 756 ? "top -20%" :"top 0%",
+        
+          
+          scrub: 1, 
+         
         },
       });
     });
@@ -37,12 +39,16 @@ function ServicesPage() {
         scroller: "body",
         start: "top 50%",
         end: "top 0%",
-       
+
         scrub: true,
       },
     });
-  });
+  },{scope:container});
+
+
+  
   useEffect(() => {
+    container = containerRef.current;
     const handleResize = () => setWindowWidth(window.innerWidth);
 
     window.addEventListener("resize", handleResize);
@@ -58,42 +64,42 @@ function ServicesPage() {
       name: "Quarterly and Semi-Annual Maintenance",
       title: "Quarterly and Semi-Annual Maintenance",
       description:
-        "Regular checkups for 2-stage and 5-stage osmosis systems to keep them running smoothly.",
+        "Regular checkups for 2-stage and 5-stage osmosis systems to keep them running smoothly. Our expert technicians conduct thorough inspections and perform necessary adjustments, ensuring optimal performance and longevity. Enjoy peace of mind knowing your water is always pure and safe.",
     },
     {
       img: service2,
       title: "Installation Services",
       name: "Installation Services",
       description:
-        "Professional installation of new filtration systems for optimal performance",
+        "Professional installation of new filtration systems for optimal performance. Our skilled team ensures a seamless setup, tailored to your specific needs and home environment. With Fit and Drink, you can trust that your system will be installed correctly and efficiently, providing you with the best water quality from day one",
     },
     {
       img: service3,
-      name: "Service Name",
-      title: "Write Texts That Make People Take Action",
+      name: "System Upgrades:",
+      title: "System Upgrades",
       description:
-        "Learn how to run Meta, Google and TikTok ads for your clients and become a master at Ad buying.",
+        "Enhance your existing setup with the latest filtration technology for improved efficiency and better-tasting water. Our upgrades ensure your system stays ahead of the curve, delivering the highest quality water for you and your family",
     },
     {
       img: service4,
       name: "Emergency Repairs",
       title: "Emergency Repairs",
       description:
-        " Fast, reliable repair services to address any unexpected issues",
+        " Fast, reliable repair services to address any unexpected issues. Our responsive team is ready to tackle any problem, ensuring minimal disruption to your water supply. Trust Fit and Drink to get your system back to peak performance quickly and efficiently.",
     },
     {
       img: service5,
       name: "Water Quality Testing",
       title: "Water Quality Testing",
       description:
-        "Comprehensive testing to ensure your water meets the highest standards",
+        "Comprehensive testing to ensure your water meets the highest standards. Our detailed water quality assessments identify any contaminants and provide solutions for cleaner, safer water. With Fit and Drink, you can be confident that every drop is pure and healthy.",
     },
   ];
 
   return (
     <>
-      <div className="relative">
-        <div id="services" className="services-container   mt-10 pb-16 ">
+      <div ref={containerRef} id="services"  className="relative">
+        <div  className="services-container   mt-10 pb-16 ">
           <h1 className="text-3xl bg-slate-100 py-6 text-center font-semibold md:font-bold my-8  md:text-4xl">
             What We Offer
           </h1>
@@ -171,7 +177,7 @@ function ServicesPage() {
                       <div className="service-card  md:flex">
                         {/* image */}
                         <div
-                          className="service-image bg-black rounded-xl overflow-hidden w-[96%] sm:w-[60%] md:w-[40%]   mx-auto "
+                          className="service-image bg-slate-200 rounded-xl overflow-hidden w-[96%] sm:w-[60%] md:w-[40%] min-h-[200px]  mx-auto "
                           style={{
                             // boxShadow: " rgba(105, 10, 176, 0.7) 0px 0px 15px"
                             boxShadow:
@@ -213,7 +219,7 @@ function ServicesPage() {
 
         {/* Animatioin lines */}
         <div
-        id="animation-line-services-up"
+          id="animation-line-services-up"
           className="animation-line-services-up absolute bottom-0 right-[50%] overflow-hidden  "
           style={{
             width: "3px",

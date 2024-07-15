@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../Assets/images/LogoCompany.jpeg";
+import logo from "../../../Assets/images/LogoCompany.webp";
 import { Link } from "react-router-dom";
 function AdminSidebar() {
   return (
@@ -11,7 +11,7 @@ function AdminSidebar() {
       >
         <div className="space-y-6 md:space-y-10 mt-10">
           <h1 className="font-bold text-3xl text-center ">
-            Fin N Drink<span className="text-teal-600">.</span>
+            Fin And Drink<span className="text-teal-600">.</span>
           </h1>
 
           <div id="profile" className="space-y-3">
@@ -22,7 +22,7 @@ function AdminSidebar() {
             />
             <div>
               <h2 className="font-medium text-xs md:text-sm text-center text-teal-500">
-                Khizer Ameer
+                Fawad Ameer
               </h2>
               <p className="text-xs text-gray-500 text-center">Administrator</p>
             </div>

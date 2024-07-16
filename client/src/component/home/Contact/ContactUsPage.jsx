@@ -17,25 +17,20 @@ function ContactUsPage() {
           "Content-Type": "application/json",
         },
       };
-      const url = `/api/v1/messages`
+      const url = `/api/v1/messages`;
 
-      const { data } = await axios.post(
-       url,
-        formdata,
-        config
-      );
+      const { data } = await axios.post(url, formdata, config);
 
       if (data.success) {
         toast.dismiss();
         toast.success("Message have been send.");
-        setEmail("")
-        setname("")
-        setmessage("")
+        setEmail("");
+        setname("");
+        setmessage("");
       }
     } catch (error) {
       toast.dismiss();
       toast.error("Send message failed ");
-      
     }
   };
 
@@ -65,8 +60,38 @@ function ContactUsPage() {
                 <p className="block antialiased font-sans text-xl font-normal leading-relaxed text-white mb-9 opacity-70">
                   Get in touch with us for any inquiries or reservations.
                 </p>
-                <p className="block antialiased font-sans text-xl font-normal leading-relaxed text-white opacity-70">
-                  Lahore , Pakistan
+                <p className="flex items-center  antialiased font-sans text-xl font-normal leading-relaxed text-white opacity-70">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                     className="w-6 h-6 text-white mr-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      {" "}
+                      <path
+                        d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>{" "}
+                      <path
+                        d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>{" "}
+                    </g>
+                  </svg>
+                  Doha, Qatar
                 </p>
                 <div className="grid gap-6 my-16">
                   <div className="flex items-center gap-4">
@@ -84,7 +109,7 @@ function ContactUsPage() {
                       ></path>
                     </svg>
                     <p className="block antialiased font-sans text-base leading-relaxed text-inherit font-bold !text-white">
-                      +92319-7114830
+                      +974-3102-7936
                     </p>
                   </div>
                   <div className="flex items-center gap-4">
@@ -99,7 +124,7 @@ function ContactUsPage() {
                       <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path>
                     </svg>
                     <p className="block antialiased font-sans text-base leading-relaxed text-inherit font-bold !text-white">
-                      khizar_ameer@xenith-agency.com
+                      fawadameer1@gmail.com
                     </p>
                   </div>
                 </div>

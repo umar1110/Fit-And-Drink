@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Link as RLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import WebLogo from "../../Assets/images/WebLogo.png";
+import WebLogo from "../../Assets/images/WebLogoo.png";
 import useME from "../../context/meContext";
 import "./navbar.css";
 function NavBar() {
@@ -108,12 +108,11 @@ function NavBar() {
       className={`fixed   flex top-0 left-0 z-[999] bg-[#0285AD] lg:px-12 max-w-screen w-screen  nav-bar justify-between   px-4 py-4`}
     >
       
-      {/*Logo  */}
       <button
        onClick={()=>{handleNavigation("homePage")}}
         className="text-white cursor-pointer  logo  font-bold text-3xl"
       >
-        <img src={WebLogo} alt="" className="w-[150px] h-[40px]" />
+        <img src={WebLogo} alt="" className="w-[150px] " />
       </button>
 
       <div className={`btn  flex justify-center items-center gap-3 `}>

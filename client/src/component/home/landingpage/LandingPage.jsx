@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import background from "../../../Assets/images/landingPageBackground.png";
+import background from "../../../Assets/images/landingPageBackground2.jpeg";
 import "./landingpage.css";
 function LandingPage() {
   
@@ -22,16 +22,17 @@ function LandingPage() {
       <div  className="landing-page relative text-white  min-h-fit md:h-[80vh]   my-14  max-w-screen w-full flex-col md:flex-row flex md:justify-end  items-center  md:items-start "
       >
         <div style={{
-           background: "linear-gradient(to bottom, #0285AD, #006482,#004053)"
-        }} className={"absolute hidden md:block -z-10  h-full w-full"}> </div>
+           
+        }} className={"landing-page-backg-grad absolute hidden md:block -z-10  h-full w-full"}> </div>
 
 
         <img
           src={background}
           alt="Background Of landing page"
           id ={"landing_background_pic"}
-          className={"absolute top-0 hidden md:block -z-10  h-full   "}
+          className={"absolute top-0 hidden md:block -z-10  h-full    "}
         />
+       
 
         {/* Left Side  */}
         <div className="left-landing-page my-16 md:my-0  h-full  w-[90%] md:w-1/2  items-center flex md:justify-start  px-6 xl:pl-72   ">

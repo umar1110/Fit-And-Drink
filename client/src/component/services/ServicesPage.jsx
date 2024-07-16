@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import service5 from "../../Assets/images/service05.webp";
 import service1 from "../../Assets/images/service1.jpeg";
 import service2 from "../../Assets/images/service2.jpeg";
-import service3 from "../../Assets/images/service3.jpeg";
+import service3 from "../../Assets/images/service3.webp";
 import service4 from "../../Assets/images/service4.jpg";
 
 function ServicesPage() {

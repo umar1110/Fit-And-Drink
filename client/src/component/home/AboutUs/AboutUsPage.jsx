@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
-import AboutUsImage from "../../../Assets/images/AboutUs.jpeg";
 
 function AboutUsPage() {
   const containerRef = useRef();
@@ -94,7 +93,7 @@ let container ;
           }}
         >
           <img
-            src={AboutUsImage}
+            src={"https://res.cloudinary.com/dvobpdvef/image/upload/v1721207197/Important%20Data/hcogu16fkjl32q82537f.jpg"}
             alt="About_us Pic"
             className="w-full  md:h-full  "
           />

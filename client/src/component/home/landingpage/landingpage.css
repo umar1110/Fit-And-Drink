@@ -1,6 +1,8 @@
 
 .landing-page-backg-grad{
-background: linear-gradient(to bottom, #0285AD, #006482,#004053)
+/* background: linear-gradient(to bottom, #0285AD, #006482,#004053) */
+background: linear-gradient(to bottom, #017EA3, #004357)
+
 
 }
 
@@ -8,7 +10,7 @@ background: linear-gradient(to bottom, #0285AD, #006482,#004053)
 
   @media (max-width: 768px) {
     .landing-page {
-      background: linear-gradient(to bottom, #017EA3, #006482,#004053);
+      background: linear-gradient(to bottom, #017EA3, #004357);
     }
   }
   

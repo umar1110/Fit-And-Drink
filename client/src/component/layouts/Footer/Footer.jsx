@@ -38,7 +38,7 @@ function Footer() {
       <p>©2024 fitanddrink.com All Rights Reserved.</p>
 
       <div className="social-icons flex  justify-center space-x-4 items-center">
-        <a href="/">
+        <a href="https://www.facebook.com/profile.php?id=61563722917553"  >
           <svg
             height={32}
             width={32}
@@ -59,7 +59,7 @@ function Footer() {
           </svg>
         </a>
 
-        <a href="/">
+        <a href="https://www.instagram.com/fitndrink?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" >
           <svg
             height={37}
             width={37}

@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../../Assets/images/LogoCompany.jpeg";
 import { Link } from "react-router-dom";
 function AdminSidebar() {
   return (
@@ -16,7 +15,7 @@ function AdminSidebar() {
 
           <div id="profile" className="space-y-3">
             <img
-              src={logo}
+              src={"https://res.cloudinary.com/dvobpdvef/image/upload/f_auto,q_auto/v1/Important%20Data/oxebhpjc02pswmhq9kjw"}
               alt="Avatar user"
               className="w-10 md:w-16 rounded-full mx-auto"
             />

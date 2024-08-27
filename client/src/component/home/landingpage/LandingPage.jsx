@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import background from "../../../Assets/images/landingPageBackground2.jpeg";
 import "./landingpage.css";
 function LandingPage() {
   
@@ -27,7 +26,7 @@ function LandingPage() {
 
 
         <img
-          src={background}
+          src={"https://res.cloudinary.com/dnibqnawe/image/upload/f_auto,q_auto/v1/FitAndDrink/wwrd236hh0ugbpajhucq"}
           alt="Background Of landing page"
           id ={"landing_background_pic"}
           className={"absolute top-0 hidden md:block -z-10  h-full    "}

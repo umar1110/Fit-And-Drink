@@ -60,11 +60,13 @@ function ContactUsPage() {
                 <p className="block antialiased font-sans text-xl font-normal leading-relaxed text-white mb-9 opacity-70">
                   Get in touch with us for any inquiries or reservations.
                 </p>
-                <p className="flex items-center  antialiased font-sans text-xl font-normal leading-relaxed text-white opacity-70">
+                
+                <div className="grid gap-6 my-16">
+                <p className="flex items-center  antialiased font-sans text-xl font-normal leading-relaxed text-white ">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
-                     className="w-6 h-6 text-white mr-3"
+                    className="w-10 h-8 text-white mr-3"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -91,9 +93,9 @@ function ContactUsPage() {
                       ></path>{" "}
                     </g>
                   </svg>
+                  Al-Muntaza Zone 24, Stree 950, Building 134, P.O. Box 12500
                   Doha, Qatar
                 </p>
-                <div className="grid gap-6 my-16">
                   <div className="flex items-center gap-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +126,7 @@ function ContactUsPage() {
                       <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path>
                     </svg>
                     <p className="block antialiased font-sans text-base leading-relaxed text-inherit font-bold !text-white">
-                      fawadameer1@gmail.com
+                      fitdrinktrading@gmail.com
                     </p>
                   </div>
                 </div>

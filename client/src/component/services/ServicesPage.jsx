@@ -1,11 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
-import service5 from "../../Assets/images/service05.webp";
-import service1 from "../../Assets/images/service1.jpeg";
-import service2 from "../../Assets/images/service2.jpeg";
-import service3 from "../../Assets/images/service3.webp";
-import service4 from "../../Assets/images/service4.jpg";
 
 function ServicesPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -61,35 +56,35 @@ function ServicesPage() {
 
   const services = [
     {
-      img: service1,
+      img: "https://res.cloudinary.com/dvobpdvef/image/upload/f_auto,q_auto/v1/Important%20Data/rbdysgrq8uinu2raibcd",
       name: "Quarterly and Semi-Annual Maintenance",
       title: "Quarterly and Semi-Annual Maintenance",
       description:
         "Regular checkups for 2-stage and 5-stage osmosis systems to keep them running smoothly. Our expert technicians conduct thorough inspections and perform necessary adjustments, ensuring optimal performance and longevity. Enjoy peace of mind knowing your water is always pure and safe.",
     },
     {
-      img: service2,
+      img: "https://res.cloudinary.com/dnibqnawe/image/upload/f_auto,q_auto/v1/FitAndDrink/pgv5f8kvpqvrwxnuxcdf",
       title: "Installation Services",
       name: "Installation Services",
       description:
         "Professional installation of new filtration systems for optimal performance. Our skilled team ensures a seamless setup, tailored to your specific needs and home environment. With Fit and Drink, you can trust that your system will be installed correctly and efficiently, providing you with the best water quality from day one",
     },
     {
-      img: service3,
+      img: "https://res.cloudinary.com/dnibqnawe/image/upload/f_auto,q_auto/v1/FitAndDrink/sl3j3dueufp8xnwalb4f",
       name: "System Upgrades:",
       title: "System Upgrades",
       description:
         "Enhance your existing setup with the latest filtration technology for improved efficiency and better-tasting water. Our upgrades ensure your system stays ahead of the curve, delivering the highest quality water for you and your family",
     },
     {
-      img: service4,
+      img: "https://res.cloudinary.com/dvobpdvef/image/upload/f_auto,q_auto/v1/Important%20Data/ugxhswrkpuviqtbpvbsh",
       name: "Emergency Repairs",
       title: "Emergency Repairs",
       description:
         " Fast, reliable repair services to address any unexpected issues. Our responsive team is ready to tackle any problem, ensuring minimal disruption to your water supply. Trust Fit and Drink to get your system back to peak performance quickly and efficiently.",
     },
     {
-      img: service5,
+      img: "https://res.cloudinary.com/dvobpdvef/image/upload/f_auto,q_auto/v1/Important%20Data/giedivhneqxouo3qmmix",
       name: "Water Quality Testing",
       title: "Water Quality Testing",
       description:

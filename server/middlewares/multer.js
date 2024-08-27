@@ -6,11 +6,13 @@ const multerUpload = multer({
   },
 });
 
+
+
+
 const productImages = multerUpload.array("productImages", 10);
 
 
-
-export {productImages};
+export  {productImages};
 
 
 // import multer from "multer";

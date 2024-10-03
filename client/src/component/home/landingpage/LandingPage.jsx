@@ -40,7 +40,7 @@ function LandingPage() {
             Elevate Your Hydration with Fit and Drink Water Solutions
             </h1>
             <h3 className="md:text-xl text-center md:text-start ">
-            Our state-of-the-art 2-stage and 5-stage osmosis systems, combined with our reliable maintenance services, ensure you enjoy clean, refreshing water every day.
+            Our state-of-the-art 3-stage and 5-stage osmosis systems, combined with our reliable maintenance services, ensure you enjoy clean, refreshing water every day.
             </h3>
             <div className="btn text-center md:text-start">
               <a href={"/#services"} className="landing-page-learn-more   font-bold  px-11 py-3  border-2 border-[#00E4B3] rounded-full text-lg hover:bg-[#00E4B3] hover:border-blue-700  hover:text-black  ">

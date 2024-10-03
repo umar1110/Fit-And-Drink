@@ -112,7 +112,7 @@ let container ;
               Welcome to FIT and DRINK! We are dedicated to providing top-notch
               water filtration services to ensure you and your family have
               access to clean, safe, and refreshing water. Specializing in both
-              2-stage and 5-stage osmosis water systems.
+              3-stage and 5-stage osmosis water systems.
             </p>
             <p className="about-us-description">
               We bring advanced technology and reliable service to your home.

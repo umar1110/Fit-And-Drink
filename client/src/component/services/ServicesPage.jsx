@@ -60,7 +60,7 @@ function ServicesPage() {
       name: "Quarterly and Semi-Annual Maintenance",
       title: "Quarterly and Semi-Annual Maintenance",
       description:
-        "Regular checkups for 2-stage and 5-stage osmosis systems to keep them running smoothly. Our expert technicians conduct thorough inspections and perform necessary adjustments, ensuring optimal performance and longevity. Enjoy peace of mind knowing your water is always pure and safe.",
+        "Regular checkups for 3-stage and 5-stage osmosis systems to keep them running smoothly. Our expert technicians conduct thorough inspections and perform necessary adjustments, ensuring optimal performance and longevity. Enjoy peace of mind knowing your water is always pure and safe.",
     },
     {
       img: "https://res.cloudinary.com/dnibqnawe/image/upload/f_auto,q_auto/v1/FitAndDrink/pgv5f8kvpqvrwxnuxcdf",
